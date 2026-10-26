@@ -1,40 +1,182 @@
-# 수요일 PBL
+<div align="center">
 
-![자료](https://img.shields.io/badge/연구·개발-코드%20아카이브-176B87) ![공개범위](https://img.shields.io/badge/데이터·모델-미포함-64748B)
+# 🌿 실내 공기질 모니터링
 
-2026년 연구·개발 과정의 공개 가능한 코드와 실험 설정을 차수별로 보존한 저장소입니다. 원본 작업 자료는 수정하지 않고 공개용 사본을 구성했습니다.
+### DHT11 · AM1008W-K · Arduino × Python
 
-## 기술과 구성
+온도와 습도부터 CO₂, VOC, 초미세먼지까지.<br>
+센서로 측정하고, LCD와 RGB LED로 확인하고, CSV로 기록합니다.
 
-확인한 기술: **Python**.
+![Arduino](https://img.shields.io/badge/Arduino-00979D?style=flat-square&logo=arduino&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Data](https://img.shields.io/badge/Data-CSV-2E7D32?style=flat-square)
+![Project](https://img.shields.io/badge/Project-PBL-7C3AED?style=flat-square)
 
-- `코드`
+[빠른 시작](#quick-start) · [하드웨어 연결](#hardware) · [데이터 구성](#data-settings)
 
-## 차수별 변경
+</div>
 
-| 차수·위치 | 파일 | 추가 | 변경 | 이전에만 존재 |
-|---|---:|---:|---:|---:|
-| `기본` | 5 | 5 | 0 | 0 |
-| `코드/1차` | 2 | 2 | 0 | 0 |
+---
 
-자세한 비교 기준은 [버전 기록](docs/VERSIONS.md), 업로드 준비 내역은 [변경 기록](CHANGELOG.md)에 있습니다. 추가·변경·삭제 수는 같은 상위 묶음의 차수별 상대경로와 업로드 파일 SHA-256을 비교한 값입니다. 과거 개발 날짜나 동작 변경을 추정한 기록이 아닙니다.
+<a name="introduction"></a>
 
-## 재현하기
+## ✨ 프로젝트 소개
 
-1. 필요한 차수의 원본 README와 의존성 파일을 먼저 확인합니다.
-2. 별도 환경에서 해당 차수의 의존성을 설치합니다.
-3. 데이터셋·모델·인증 정보는 각자의 허가된 자료와 환경변수로 준비합니다.
+DHT11과 AM1008W-K의 측정값을 아두이노에서 읽어 실내 환경을 확인하는 프로젝트입니다. 16×2 LCD는 세 화면을 순환하며 값을 표시하고, RGB LED는 읽기에 성공한 항목 중 가장 높은 위험 등급을 색으로 보여줍니다. PC에서는 Python 프로그램이 시리얼 데이터를 받아 수신 시각과 함께 CSV에 저장합니다.
 
-일부 코드는 과거 D 드라이브나 Docker 작업 경로를 참조합니다. 저장소는 코드 보관본이며 모든 실험·앱의 설치, 학습, 실행 성공을 확인한 배포본이 아닙니다.
+| 기능 | 동작 |
+| :--- | :--- |
+| 🌡️ 온습도 측정 | DHT11과 AM1008W-K에서 각각 온도·습도 수집 |
+| 🍃 공기질 측정 | AM1008W-K의 CO₂, VOC 단계, PM2.5 수집 |
+| 🖥️ LCD 표시 | DHT → AM 온습도 → 공기질 화면을 약 3초마다 전환 |
+| 🚦 LED 표시 | 좋음·보통·나쁨·매우 나쁨을 색으로 구분 |
+| 💾 데이터 기록 | 약 1초 간격의 시리얼 데이터를 CSV에 누적 저장 |
+| 🧩 오류 처리 | 실패한 센서 항목은 빈칸으로 전송, 모든 값이 빈 행은 저장 제외 |
 
-## 공개 범위와 검증 한계
+```mermaid
+flowchart LR
+    A[DHT11 온습도] --> C[Arduino]
+    B[AM1008W-K 공기질] --> C
+    C --> D[16×2 LCD]
+    C --> E[RGB LED]
+    C -->|USB · 9600 baud| F[Python 수집기]
+    F --> G[air_log.csv]
+```
 
-- 노트북의 실행 결과, 실행 횟수, 위젯·셀 메타데이터와 첨부 이미지를 제거했습니다.
-- 원데이터, 의료·개인 자료, 학습 가중치, 실행 파일, 캐시와 외부 SDK를 제외했습니다.
-- 비밀키·개인정보 탐지 또는 공개 권리가 불명확한 파일 3개는 업로드하지 않았습니다. 탐지 값과 개인 기록은 저장소에 싣지 않았습니다.
-- 포함 파일의 해시와 사본 변환을 기록했습니다. 코드 전체의 기능·보안·재현성을 보증하지 않습니다.
-- GitHub Actions 원본이 포함되면 `_github-workflows-reference`에 참고용으로 보관하며 자동 실행하지 않습니다.
+<a name="repository-structure"></a>
 
-## 라이선스
+## 📁 저장소 구성
 
-기존 LICENSE·NOTICE 파일과 개별 저작권 표시를 유지합니다. 새 라이선스를 임의로 부여하지 않았습니다. 라이선스 표시가 없는 코드의 이용 조건과 외부 의존성의 조건은 별도로 확인해 주세요.
+초기 온습도 실험과 공기질 센서를 추가한 최종 코드를 함께 보관합니다. 아래는 주요 경로를 발췌한 구조입니다.
+
+```text
+.
+├── README.md
+├── CHANGELOG.md
+├── docs/
+│   └── VERSIONS.md
+└── 코드/
+    ├── 1차/
+    │   ├── pc_csv_logger.py
+    │   └── dht_lcd_rgb_csv/
+    │       └── dht_lcd_rgb_csv.ino
+    └── 최종/
+        ├── requirements.txt
+        ├── 아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino
+        └── CSV 파이썬 코드/pc_csv_logger.py
+```
+
+- [아두이노 스케치](코드/최종/아두이노%20코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino): 센서 읽기, LCD 표시, LED 등급 판정, CSV 전송.
+- [Python 수집기](코드/최종/CSV%20파이썬%20코드/pc_csv_logger.py): 데이터 형식 검사 및 타임스탬프를 포함한 CSV 저장.
+- 측정 CSV는 공개 저장소에 포함하지 않습니다. 수집기를 실행하면 현재 작업 폴더에 새 기록이 생성됩니다.
+
+<a name="hardware"></a>
+
+## 🔌 하드웨어 연결
+
+아래 핀은 현재 스케치 설정입니다. A4/A5는 Arduino Uno 계열 기준이며, 다른 보드에서는 해당 보드의 SDA/SCL 핀을 사용하세요.
+
+| 부품 | 연결 / 설정 |
+| :--- | :--- |
+| DHT11 | 데이터 핀 D2, 코드의 `DHTTYPE = DHT11` |
+| AM1008W-K | I²C 버전, SDA → A4 / SCL → A5, 주소 `0x28` |
+| 16×2 I²C LCD | SDA → A4 / SCL → A5, 주소 `0x27` |
+| RGB LED | R → D9 / G → D10 / B → D11 |
+| PC 연결 | USB 시리얼, `9600 baud` |
+
+AM1008W-K와 LCD는 같은 I²C 버스를 공유합니다. 전원 전압은 각 부품 사양에 맞추고 GND를 공통으로 연결하세요. LED에는 적절한 전류 제한 저항을 사용하세요. 현재 LED 제어는 HIGH에서 켜지는 방식이므로 공통 애노드 LED는 제어 논리를 반전해야 합니다.
+
+<a name="quick-start"></a>
+
+## 🚀 빠른 시작
+
+### 1. 아두이노에 스케치 업로드
+
+1. Arduino IDE에서 `코드/최종/아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino`를 엽니다.
+2. `DHT sensor library`와 해당 라이브러리가 요구하는 의존성, `LiquidCrystal_I2C` 라이브러리를 설치합니다. LCD 라이브러리는 `init()`와 `backlight()`를 지원하는 버전을 사용하세요.
+3. 보드와 포트를 선택한 뒤 업로드합니다.
+4. 시리얼 모니터를 `9600 baud`로 열어 CSV 출력 여부를 확인하고, Python 실행 전에는 시리얼 모니터를 닫습니다.
+
+DHT22를 사용하면 `DHTTYPE`을 `DHT22`로 바꾸세요. LCD 주소가 다르면 `LiquidCrystal_I2C lcd(0x27, 16, 2)`의 주소를 실제 장치 주소로 수정하세요.
+
+### 2. Python 환경 준비
+
+저장소 최상위 폴더에서 실행합니다.
+
+```powershell
+python -m pip install -r "코드/최종/requirements.txt"
+```
+
+### 3. 포트 설정 및 기록 시작
+
+`pc_csv_logger.py`의 `PORT`를 실제 아두이노 포트로 바꿉니다. 기본값은 `COM4`입니다.
+
+```python
+PORT = "COM4"
+BAUD = 9600
+OUTPUT_FILE = "air_log.csv"
+```
+
+```powershell
+cd "코드/최종/CSV 파이썬 코드"
+python pc_csv_logger.py
+```
+
+`Ctrl+C`로 종료합니다. 파일은 현재 작업 폴더에 생성되며, 기존 파일이 있으면 이어서 저장합니다. 제공된 원본 데이터와 새 측정을 분리하려면 실행 전에 `OUTPUT_FILE`을 다른 이름으로 지정하세요.
+
+<a name="data-settings"></a>
+
+## 📊 데이터 구성
+
+CSV는 PC 수신 시각과 센서 값 7개로 구성됩니다. `timestamp`는 PC의 로컬 시각이며 시간대 정보는 포함하지 않습니다.
+
+| 열 | 의미 | 단위 |
+| :--- | :--- | :--- |
+| `timestamp` | PC에서 데이터를 수신한 시각 | `YYYY-MM-DD HH:MM:SS` |
+| `dht_temp_C` | DHT 온도 | °C |
+| `dht_humi_pct` | DHT 상대습도 | % |
+| `am_temp_C` | AM1008W-K 온도 | °C |
+| `am_humi_pct` | AM1008W-K 상대습도 | % |
+| `co2_ppm` | CO₂ | ppm |
+| `voc_level` | VOC 단계 | 센서 단계 값 |
+| `pm25_ugm3` | PM2.5 | µg/m³ |
+
+수집기는 헤더, 열 개수가 잘못된 행, 숫자 또는 빈칸 이외의 값이 있는 행을 건너뜁니다. 일부 센서가 실패한 행은 정상 항목을 보존합니다. 측정 날짜·행 수·연속성은 직접 수집한 파일을 기준으로 확인하세요.
+
+<a name="led-thresholds"></a>
+
+## 🚦 LED 표시 기준
+
+현재 코드에 구현된 프로젝트 판정 기준입니다. 각 항목을 평가한 뒤 가장 나쁜 등급을 최종 색으로 표시합니다. 아래 범위는 서로 겹치지 않도록 코드의 판정 순서를 반영했습니다.
+
+| 항목 | 🟢 좋음 | 🟡 보통 | 🔴 나쁨 | 🟣 매우 나쁨 |
+| :--- | :--- | :--- | :--- | :--- |
+| 온도 (°C) | 20 이상 26 미만 | 18 이상 20 미만 / 26 이상 28 미만 | 15 이상 18 미만 / 28 이상 30 미만 | 15 미만 / 30 이상 |
+| 습도 (%) | 40–60 | 30 이상 40 미만 / 60 초과 70 이하 | 20 이상 30 미만 / 70 초과 80 이하 | 20 미만 / 80 초과 |
+| CO₂ (ppm) | 800 미만 | 800 이상 1000 미만 | 1000 이상 1500 미만 | 1500 이상 |
+| VOC 단계 | 0–1 | 2 | 3 이상 | 해당 없음 |
+| PM2.5 (µg/m³) | 15 이하 | 15 초과 35 이하 | 35 초과 75 이하 | 75 초과 |
+
+모든 센서 읽기가 실패하면 LED는 꺼집니다. 이 표는 코드 동작을 설명하며 공식 환경·건강 판정 기준을 제시하는 표가 아닙니다.
+
+<a name="troubleshooting"></a>
+
+## 🛠️ 문제 해결
+
+| 증상 | 확인할 내용 |
+| :--- | :--- |
+| 시리얼 포트를 열 수 없음 | `PORT` 설정, USB 연결, 다른 프로그램의 포트 사용 여부 |
+| LCD에 글자가 나오지 않음 | I²C 주소, SDA/SCL 연결, 대비 조절 |
+| `AM1008W Error` 표시 | I²C 버전 여부, 주소 `0x28`, 배선·전원, 프레임 및 체크섬 |
+| `DHT Sensor Error` 표시 | 데이터 핀 D2, 센서 종류, 배선 |
+| CSV에 일부 값이 빈칸 | 해당 센서 읽기 실패 여부 |
+| LED 색상이 예상과 다름 | 모든 측정 항목 중 가장 나쁜 등급, LED 종류 및 배선 |
+
+---
+
+<div align="center">
+
+**측정 → 표시 → 기록**<br>
+실내 환경 센싱 프로젝트
+
+</div>
