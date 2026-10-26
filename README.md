@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🌿 실내 공기질 모니터링
+# Indoor-Air-Monitor-Project
+
+## 🌿 실내 공기질 모니터링
 
 ### DHT11 · AM1008W-K · Arduino × Python
 
@@ -131,7 +133,7 @@ cd "코드/최종/CSV 파이썬 코드"
 python pc_csv_logger.py
 ```
 
-`Ctrl+C`로 종료합니다. 파일은 현재 작업 폴더에 생성되며, 기존 파일이 있으면 이어서 저장합니다. 제공된 원본 데이터와 새 측정을 분리하려면 실행 전에 `OUTPUT_FILE`을 다른 이름으로 지정하세요.
+`Ctrl+C`로 종료합니다. 파일은 현재 작업 폴더에 생성되며, 기존 파일이 있으면 이어서 저장합니다. 기존 측정과 새 기록을 분리하려면 실행 전에 `OUTPUT_FILE`을 다른 이름으로 지정하세요.
 
 <a name="data-settings"></a>
 
