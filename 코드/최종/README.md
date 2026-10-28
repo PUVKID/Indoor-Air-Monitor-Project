@@ -60,7 +60,7 @@ flowchart LR
 
 - [아두이노 스케치](아두이노%20코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino): 센서 읽기, LCD 표시, LED 등급 판정, CSV 전송.
 - [Python 수집기](CSV%20파이썬%20코드/pc_csv_logger.py): 데이터 형식 검사 및 타임스탬프를 포함한 CSV 저장.
-- [측정 데이터](CSV%20파이썬%20코드/air_log.csv): 제공된 원본 기록. 약 34.6MB이며, 큰 파일은 GitHub에서 내려받아 확인할 수 있습니다.
+- `air_log.csv`: 수집기를 실행하면 작업 위치에 생성되는 기록 파일입니다. 이 공개 저장소에는 포함되어 있지 않습니다.
 
 ## 🔌 하드웨어 연결
 

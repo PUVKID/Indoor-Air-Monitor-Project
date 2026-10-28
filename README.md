@@ -1,17 +1,10 @@
 <div align="center">
 
-# 🍃 아두이노 실내공기질 모니터링
+# 🍃 Indoor Air Monitor Project
 
-**Indoor-Air-Monitor-Project**
+Arduino로 실내 공기질을 측정하고 화면 표시와 Python CSV 기록으로 연결합니다.
 
 **기술 분류:** 임베디드·IoT › 센서 통신 › I²C·UART·표시·CSV
-
-## 🌿 실내 공기질 모니터링
-
-### ✨ DHT11 · AM1008W-K · Arduino × Python
-
-온도와 습도부터 CO₂, VOC, 초미세먼지까지.<br>
-센서로 측정하고, LCD와 RGB LED로 확인하고, CSV로 기록합니다.
 
 ![Arduino](https://img.shields.io/badge/Arduino-00979D?style=flat-square&logo=arduino&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
@@ -23,6 +16,26 @@
 [예시 이미지](#preview)
 
 </div>
+
+<a name="overview"></a>
+
+## 🗺️ 한눈에 보는 구성
+
+<p align="center"><img src="assets/overview.png" width="960" alt="프로젝트의 입력·처리·출력을 정리한 설명도" /></p>
+보관한 프로젝트 자료의 흐름을 정리한 설명도입니다.
+
+## ✨ 최신 차수에서 달라진 점
+
+AM1008W-K를 더해 일곱 센서 값과 세 LCD 화면·종합 RGB 등급을 구성합니다.
+
+최종 수집기는 형식 검사와 시간 기록을 포함합니다. 센서·배선과 라이브러리가 필요하며 이번 문서 작업에서 장치를 실행하지 않았습니다.
+
+- DHT에 AM1008W 온습도·CO₂·VOC·PM2.5를 추가하여 LCD 순환 표시와 센서별 위험 등급을 종합합니다.
+- parse_line이 일곱 필드의 숫자 또는 빈칸 여부를 검사합니다. 일부 센서 실패는 빈칸으로 남기고 전부 빈 행은 제외합니다.
+- 포트 기본값은 COM4로 바뀌고 air_log.csv를 UTF-8로 저장합니다. PC 수신 시각을 앞에 붙여 총 여덟 열을 기록합니다.
+
+**자료별 안내:** [1차](docs/versions/first.md) · [최종](docs/versions/latest.md) · [전체 기록](docs/VERSIONS.md)
+
 
 <a name="preview"></a>
 
