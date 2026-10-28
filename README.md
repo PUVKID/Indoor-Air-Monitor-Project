@@ -6,23 +6,18 @@ Arduino로 실내 공기질을 측정하고 화면 표시와 Python CSV 기록�
 
 **기술 분류:** 임베디드·IoT › 센서 통신 › I²C·UART·표시·CSV
 
-![Arduino](https://img.shields.io/badge/Arduino-00979D?style=flat-square&logo=arduino&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Data](https://img.shields.io/badge/Data-CSV-2E7D32?style=flat-square)
-![Project](https://img.shields.io/badge/Project-PBL-7C3AED?style=flat-square)
+`Arduino`
+`Python`
+`CSV`
+`PBL`
 
 [빠른 시작](#quick-start) · [하드웨어 연결](#hardware) · [데이터 구성](#data-settings)
 
-[예시 이미지](#preview)
+[핵심 구성](#input-processing-output)
 
 </div>
 
 <a name="overview"></a>
-
-## 🗺️ 한눈에 보는 구성
-
-<p align="center"><img src="assets/overview.png" width="960" alt="프로젝트의 입력·처리·출력을 정리한 설명도" /></p>
-보관한 프로젝트 자료의 흐름을 정리한 설명도입니다.
 
 ## ✨ 최신 차수에서 달라진 점
 
@@ -36,18 +31,7 @@ AM1008W-K를 더해 일곱 센서 값과 세 LCD 화면·종합 RGB 등급을 �
 
 **자료별 안내:** [1차](docs/versions/first.md) · [최종](docs/versions/latest.md) · [전체 기록](docs/VERSIONS.md)
 
-
 <a name="preview"></a>
-
-## 🖼️ 예시로 보기
-
-<p align="center"><img src="assets/previews/code-explainer.png" width="900" alt="코드 기반 설명도 · Indoor-Air-Monitor-Project" /></p>
-
-**코드 기반 설명도** — `parse_line()`과 `main()`의 수신 데이터 검증 및 CSV 저장 흐름을 설명합니다. 실제 측정값을 사용한 실행 화면은 아닙니다.
-
-[근거 파일 보기](%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)
-
-
 
 <a name="input-processing-output"></a>
 
@@ -55,10 +39,9 @@ AM1008W-K를 더해 일곱 센서 값과 세 LCD 화면·종합 RGB 등급을 �
 
 | 단계 | 이 프로젝트에서 다루는 내용 |
 | :--- | :--- |
-| 입력 | DHT11·AM1008W-K 측정값 |
-| 처리 | Arduino I²C 센싱·LCD·LED, UART 수신 검사 |
-| 출력 | 측정 화면·RGB 표시·타임스탬프 CSV |
-
+| 📥 입력 | DHT11·AM1008W-K 측정값 |
+| ⚙️ 처리 | Arduino I²C 센싱·LCD·LED, UART 수신 검사 |
+| 📤 출력 | 측정 화면·RGB 표시·타임스탬프 CSV |
 
 
 ---
