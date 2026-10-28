@@ -1,6 +1,6 @@
 <div align="center">
 
-# 아두이노 실내공기질 모니터링
+# 🍃 아두이노 실내공기질 모니터링
 
 **Indoor-Air-Monitor-Project**
 
@@ -8,7 +8,7 @@
 
 ## 🌿 실내 공기질 모니터링
 
-### DHT11 · AM1008W-K · Arduino × Python
+### ✨ DHT11 · AM1008W-K · Arduino × Python
 
 온도와 습도부터 CO₂, VOC, 초미세먼지까지.<br>
 센서로 측정하고, LCD와 RGB LED로 확인하고, CSV로 기록합니다.
@@ -53,6 +53,8 @@
 <a name="introduction"></a>
 
 ## ✨ 프로젝트 소개
+
+센서로 읽은 실내 환경을 화면과 불빛으로 확인하고 PC에 기록하는 프로젝트입니다.
 
 DHT11과 AM1008W-K의 측정값을 아두이노에서 읽어 실내 환경을 확인하는 프로젝트입니다. 16×2 LCD는 세 화면을 순환하며 값을 표시하고, RGB LED는 읽기에 성공한 항목 중 가장 높은 위험 등급을 색으로 보여줍니다. PC에서는 Python 프로그램이 시리얼 데이터를 받아 수신 시각과 함께 CSV에 저장합니다.
 
@@ -115,7 +117,7 @@ flowchart LR
 
 ## 🔌 하드웨어 연결
 
-아래 핀은 현재 스케치 설정입니다. A4/A5는 Arduino Uno 계열 기준이며, 다른 보드에서는 해당 보드의 SDA/SCL 핀을 사용하세요.
+센서를 연결하기 전에 보드 종류를 확인하세요. 아래 핀은 현재 스케치 설정이며 A4/A5는 Arduino Uno 계열 기준입니다. 다른 보드에서는 해당 보드의 SDA/SCL 핀을 사용하세요.
 
 | 부품 | 연결 / 설정 |
 | :--- | :--- |
@@ -131,7 +133,7 @@ AM1008W-K와 LCD는 같은 I²C 버스를 공유합니다. 전원 전압은 각 
 
 ## 🚀 빠른 시작
 
-### 1. 아두이노에 스케치 업로드
+### 🔌 1. 아두이노에 스케치 업로드
 
 1. Arduino IDE에서 `코드/최종/아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino`를 엽니다.
 2. `DHT sensor library`와 해당 라이브러리가 요구하는 의존성, `LiquidCrystal_I2C` 라이브러리를 설치합니다. LCD 라이브러리는 `init()`와 `backlight()`를 지원하는 버전을 사용하세요.
@@ -140,7 +142,7 @@ AM1008W-K와 LCD는 같은 I²C 버스를 공유합니다. 전원 전압은 각 
 
 DHT22를 사용하면 `DHTTYPE`을 `DHT22`로 바꾸세요. LCD 주소가 다르면 `LiquidCrystal_I2C lcd(0x27, 16, 2)`의 주소를 실제 장치 주소로 수정하세요.
 
-### 2. Python 환경 준비
+### 🐍 2. Python 환경 준비
 
 저장소 최상위 폴더에서 실행합니다.
 
@@ -148,7 +150,7 @@ DHT22를 사용하면 `DHTTYPE`을 `DHT22`로 바꾸세요. LCD 주소가 다르
 python -m pip install -r "코드/최종/requirements.txt"
 ```
 
-### 3. 포트 설정 및 기록 시작
+### 📝 3. 포트 설정 및 기록 시작
 
 `pc_csv_logger.py`의 `PORT`를 실제 아두이노 포트로 바꿉니다. 기본값은 `COM4`입니다.
 
