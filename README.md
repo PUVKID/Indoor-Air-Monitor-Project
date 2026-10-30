@@ -17,6 +17,20 @@ Arduino로 실내 공기질을 측정하고 화면 표시와 Python CSV 기록�
 
 </div>
 
+## 🗂️ 차수와 자료 둘러보기
+
+[**📖 전체 차수·파일별 변화 보기 →**](docs/REVISION_INDEX.md)
+
+| 차수·자료 | 내용 | 원본 파일 | 상세·비교 |
+| :--- | :--- | :--- | :--- |
+| **코드 1차** | DHT 센싱과 초기 CSV 수집 | [📁 열기](%EC%BD%94%EB%93%9C/1%EC%B0%A8) | [📖 설명](docs/revisions/step-1.md) |
+| **코드 최종** | AM1008W-K·LCD 순환·일곱 값 검사 | [📁 열기](%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) | [📖 설명](docs/revisions/step-2.md) |
+| **보고서 1차** | Arduino·Python 담당 부분을 반영한 v0.2 | [📁 열기](%EB%B3%B4%EA%B3%A0%EC%84%9C/1%EC%B0%A8) | [📖 설명](보고서/README.md) |
+| **보고서 2차** | v0.3 서식 복원본 | [📁 열기](%EB%B3%B4%EA%B3%A0%EC%84%9C/2%EC%B0%A8) | [📖 설명](보고서/README.md) |
+
+
+
+
 <a name="overview"></a>
 
 ## ✨ 주요 개발 내용
@@ -59,7 +73,7 @@ DHT11과 AM1008W-K의 측정값을 아두이노에서 읽어 실내 환경을 �
 이 코드는 [ICT-IndoorAD 실내 환경 프로젝트](https://github.com/ICT-IndoorAD)에 참여하면서 **곽윤석(Kwak Yunsuk)이 직접 작성한 담당 부분**을 정리한 것입니다. 아두이노 센서 측정·LCD·RGB LED 제어와 Python 시리얼·CSV 기록 코드를 차수별로 담았습니다.
 
 - [ICT-IndoorAD 프로젝트 전체](https://github.com/ICT-IndoorAD): 함께 진행한 프로젝트와 참여자별 저장소를 확인할 수 있습니다.
-- [ICT-IndoorAD의 윤석님 담당 저장소](https://github.com/ICT-IndoorAD/Yunsuk-Kwak): 프로젝트 안에서 작성한 개인 담당 코드의 연결 경로입니다.
+- [ICT-IndoorAD 개인 담당 저장소](https://github.com/ICT-IndoorAD/Yunsuk-Kwak): 프로젝트 안에서 작성한 개인 담당 코드의 연결 경로입니다.
 
 이 저장소의 설명과 구현 범위는 위 개인 담당 코드에 한정합니다. 공동 프로젝트의 다른 참여자가 작성한 부분은 각 참여자의 저장소에서 확인해 주세요.
 
@@ -107,7 +121,7 @@ flowchart LR
 
 - [아두이노 스케치](코드/최종/아두이노%20코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino): 센서 읽기, LCD 표시, LED 등급 판정, CSV 전송.
 - [Python 수집기](코드/최종/CSV%20파이썬%20코드/pc_csv_logger.py): 데이터 형식 검사 및 타임스탬프를 포함한 CSV 저장.
-- 측정 CSV는 공개 저장소에 포함하지 않습니다. 수집기를 실행하면 현재 작업 폴더에 새 기록이 생성됩니다.
+- 1차 `dht_log.csv`와 최종 `air_log.csv`를 전체 원문으로 보관합니다. [측정 기록의 행·열·시각](docs/DATA.md)을 확인할 수 있습니다. 새 측정은 기존 파일과 다른 이름으로 기록하세요.
 
 <a name="hardware"></a>
 
@@ -219,3 +233,25 @@ CSV는 PC 수신 시각과 센서 값 7개로 구성됩니다. `timestamp`는 PC
 실내 환경 센싱 프로젝트
 
 </div>
+
+
+## 📑 보고서
+
+[**프로젝트 보고서 열기 →**](보고서/README.md)
+
+
+[**🔎 보고서 1차 → 2차: 본문·서식의 실제 차이**](docs/report-revisions/1-to-2.md)
+
+
+## 💾 측정 원본과 프로젝트 문서
+
+| 자료 | 파일 |
+| :--- | :--- |
+| 1차 측정 | [dht_log.csv](코드/1차/dht_log.csv) |
+| 최종 측정 | [air_log.csv](코드/최종/CSV%20파이썬%20코드/air_log.csv) |
+| 부품 구매 문서 | [결제 내역](결제%20내역/) |
+
+CSV는 저장된 전체 기록입니다. 파일의 처음과 마지막 시각 사이가 중단 없는 연속 측정을 뜻하지는 않습니다. 큰 CSV는 내려받아 확인합니다.
+
+
+[**📊 측정 행 수·시각·열 구성 확인 →**](docs/DATA.md)

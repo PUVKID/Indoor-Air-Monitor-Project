@@ -1,0 +1,79 @@
+[
+  {
+    "part": "[Content_Types].xml",
+    "before_bytes": 2015,
+    "after_bytes": 2014,
+    "before_sha256": "697f6a672d46ab939f383f1968ac0402cd049a301a34827b677ecfceccf095ab",
+    "after_sha256": "6bcce4348523c903922014bfbfc9b73dfb8c02b4debf592ea40d77e01ead078b"
+  },
+  {
+    "part": "_rels/.rels",
+    "before_bytes": 590,
+    "after_bytes": 589,
+    "before_sha256": "e19238d7a71fa7a2490776252686f70e2de6238c87cd509b5e3a3cc07c2ea4df",
+    "after_sha256": "a76c44cf6b278166bfc93edce0a98846be30e584462153ba97fa683469ff5916"
+  },
+  {
+    "part": "docProps/core.xml",
+    "before_bytes": 766,
+    "after_bytes": 765,
+    "before_sha256": "e5a182ad48906a81c234d3f4a23664ad25603a703d1a3671c3bd6effd5956270",
+    "after_sha256": "150a2ddae2f727e858b3ccf518c5c7d07754ac16b93b0afedb69128f6fbc276e"
+  },
+  {
+    "part": "word/_rels/document.xml.rels",
+    "before_bytes": 2136,
+    "after_bytes": 2135,
+    "before_sha256": "cd19652cf63a66c1f60bde05531f65cc2d356d7f642794f4fda604ef425b2dfc",
+    "after_sha256": "72b30841cf2058547d08cdbd32d97473bd2795705e4abff62322ed19d33136b6"
+  },
+  {
+    "part": "word/_rels/header1.xml.rels",
+    "before_bytes": 289,
+    "after_bytes": 288,
+    "before_sha256": "94bca6aec3177c3b64686e1248ecfb39e9750dc067c2274af33e6b442d1f6617",
+    "after_sha256": "a134ffb58bad658becad1362f28a7fcb92904a928e5a686fbae9bed93092e9d8"
+  },
+  {
+    "part": "word/document.xml",
+    "before_bytes": 781326,
+    "after_bytes": 771857,
+    "before_sha256": "da97f236fb130358e536fe36f315366daccf713be169f1597d78cf0e779eb008",
+    "after_sha256": "c6ffb4074a22e2a233848510d6574112a590e11938853949b786785d571e2a89"
+  },
+  {
+    "part": "word/footer1.xml",
+    "before_bytes": 2306,
+    "after_bytes": 2305,
+    "before_sha256": "5e510c330541e03e875821bc6aac6d6144c8f5968d02d562b21dd986b086a123",
+    "after_sha256": "6db8f9cfbc9a290dd81b4d5c5a41bfab129a723c4524e671ec308da07f1e4923"
+  },
+  {
+    "part": "word/header1.xml",
+    "before_bytes": 4929,
+    "after_bytes": 4928,
+    "before_sha256": "9f907882f5f779b9e5008b5b909899bb85518dc52d6de8ceba9b3cbc6ce9de69",
+    "after_sha256": "b68ce191bf9fb371cc0ce11caf7541da812119cd4c37c3e47b09f2ccc667d4b0"
+  },
+  {
+    "part": "word/numbering.xml",
+    "before_bytes": 8133,
+    "after_bytes": 8132,
+    "before_sha256": "66b11e16fe432a4bc60c5d01b012cd88fbf1fc12456ca06ee707b22c6e33a828",
+    "after_sha256": "b7f7ff70d3e882528d5f8e817c52bba960b21e6ae813ef27de56435c526d67d2"
+  },
+  {
+    "part": "word/settings.xml",
+    "before_bytes": 3442,
+    "after_bytes": 3441,
+    "before_sha256": "78a0d399adc30b0a58b0e48fb9195fddabe090ffe262ed586dd6c4d065b75c23",
+    "after_sha256": "292b8146bef75dc54f22a33483e81ae89ff835103a50e4a514570df26a8f8538"
+  },
+  {
+    "part": "word/styles.xml",
+    "before_bytes": 32470,
+    "after_bytes": 32469,
+    "before_sha256": "996bb846336debaec26f170fa113c41fa55bcdb11e11213a853123120ad8d092",
+    "after_sha256": "847e6218ecf2f60995872f710b21dc2f91153c68e65af3527420acbecb6d4036"
+  }
+]
