@@ -25,13 +25,13 @@ Arduino로 실내 공기질을 측정하고 화면 표시와 Python CSV 기록�
 | :--- | :--- | :--- | :--- |
 | **코드 1차** | DHT 센싱과 초기 CSV 수집 | [📁 열기](%EC%BD%94%EB%93%9C/1%EC%B0%A8) | [📖 설명](docs/revisions/step-1.md) |
 | **코드 최종** | AM1008W-K·LCD 순환·일곱 값 검사 | [📁 열기](%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) | [📖 설명](docs/revisions/step-2.md) |
-| **보고서 1차** | Arduino·Python 담당 부분을 반영한 v0.2 | [📁 열기](%EB%B3%B4%EA%B3%A0%EC%84%9C/1%EC%B0%A8) | [📖 설명](보고서/README.md) |
-| **보고서 2차** | v0.3 서식 복원본 | [📁 열기](%EB%B3%B4%EA%B3%A0%EC%84%9C/2%EC%B0%A8) | [📖 설명](보고서/README.md) |
-
-
 
 
 <a name="overview"></a>
+
+## 👨‍💻 제가 구현한 부분
+
+DHT11·AM1008W-K 센서 수집, LCD·RGB LED 표시, Arduino 시리얼 출력과 Python CSV 수집기를 작성했습니다. 이 저장소에는 제가 구현한 센서·기록 코드와 측정 자료를 정리합니다.
 
 ## ✨ 주요 개발 내용
 
@@ -235,23 +235,26 @@ CSV는 PC 수신 시각과 센서 값 7개로 구성됩니다. `timestamp`는 PC
 </div>
 
 
-## 📑 보고서
-
-[**프로젝트 보고서 열기 →**](보고서/README.md)
-
-
-[**🔎 보고서 1차 → 2차: 본문·서식의 실제 차이**](docs/report-revisions/1-to-2.md)
-
-
 ## 💾 측정 원본과 프로젝트 문서
 
 | 자료 | 파일 |
 | :--- | :--- |
 | 1차 측정 | [dht_log.csv](코드/1차/dht_log.csv) |
 | 최종 측정 | [air_log.csv](코드/최종/CSV%20파이썬%20코드/air_log.csv) |
-| 부품 구매 문서 | [결제 내역](결제%20내역/) |
 
 CSV는 저장된 전체 기록입니다. 파일의 처음과 마지막 시각 사이가 중단 없는 연속 측정을 뜻하지는 않습니다. 큰 CSV는 내려받아 확인합니다.
 
 
 [**📊 측정 행 수·시각·열 구성 확인 →**](docs/DATA.md)
+
+
+<details>
+<summary>🧹 공개 자료 정리 기록</summary>
+
+| 검수 대상 | 연결 자료 | 상세·이번 비교 |
+| :--- | :--- | :--- |
+| **기존 코드와 자료** | [📁 검수 자료](docs/publication-review) | [📖 정리 내용](docs/publication-review/item-1.md) · [🔎 파일 비교](docs/publication-review/공개파일변경.json) |
+
+[🗂️ 전체 차수와 자료](docs/REVISION_INDEX.md)
+
+</details>

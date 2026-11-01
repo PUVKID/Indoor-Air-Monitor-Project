@@ -1,0 +1,143 @@
+{
+  "scope": "이번 공개 자료 정리의 실제 파일 변경. 개인정보 원문 값은 재기록하지 않습니다. 이 색인 자체의 재귀 해시는 포함하지 않습니다.",
+  "changes": [
+    {
+      "path": "README.md",
+      "change": "modified",
+      "before": {
+        "bytes": 12137,
+        "sha256": "55c22510114d4a2a55cafc2987480b8d9bd173777189ec1775caa9e83af74908"
+      },
+      "after": {
+        "bytes": 12016,
+        "sha256": "f4f8947d5ce11087a8afb35747832c69261c0646031987e89361c736b0d19666"
+      }
+    },
+    {
+      "path": "docs/REVISION_INDEX.md",
+      "change": "modified",
+      "before": {
+        "bytes": 962,
+        "sha256": "b6a6d598b74a7c4d6e4a952b433af81b4bddec50d5a6e6b3d59bf1f6f7b14752"
+      },
+      "after": {
+        "bytes": 1109,
+        "sha256": "02a82a5a5ffea7f05f0479fbfa73f2ccf3abb0dc8397230f781ab35f86b8ba6b"
+      }
+    },
+    {
+      "path": "docs/VERSIONS.md",
+      "change": "modified",
+      "before": {
+        "bytes": 3020,
+        "sha256": "4fe9e278a9fab26f1c373fff90a9457e73c3d12f0553d74d1e41a32415052b1b"
+      },
+      "after": {
+        "bytes": 2774,
+        "sha256": "cdac343026a2e2d8739c5f536865645c94c3c1711a284778294d1536442be9ab"
+      }
+    },
+    {
+      "path": "docs/changes/2026-10-30-공개자료정리.md",
+      "change": "added",
+      "before": null,
+      "after": {
+        "bytes": 314,
+        "sha256": "8e395b1f25de5125f66a105c3bfd98282f64c60a4ceea9d203260ae8d3141a0f"
+      }
+    },
+    {
+      "path": "docs/changes/2026-10-30-자료와차수정리.md",
+      "change": "modified",
+      "before": {
+        "bytes": 3885,
+        "sha256": "c8fba0e4f54c6ae22b142d4bffc50d7a8b51fa7461e8389eb9e0dd9a0936dd2f"
+      },
+      "after": {
+        "bytes": 2427,
+        "sha256": "c7e4d59593d3eb08c9f1a51ac57c35e5894cdb89c1d9680ee9cf9b7b5cecab8f"
+      }
+    },
+    {
+      "path": "docs/publication-review/item-1.md",
+      "change": "added",
+      "before": null,
+      "after": {
+        "bytes": 653,
+        "sha256": "679dde11ec4a5adaaf3292fde10a63ae360672f45a8cd1d7b6b1f2fc31c4f4fa"
+      }
+    },
+    {
+      "path": "docs/report-revisions/1-to-2-files.json",
+      "change": "deleted",
+      "before": {
+        "bytes": 2976,
+        "sha256": "9230deee29686ffc3c15b627047e15c5193c490c88dad13ef1210c97efeef15c"
+      },
+      "after": null
+    },
+    {
+      "path": "docs/report-revisions/1-to-2.md",
+      "change": "deleted",
+      "before": {
+        "bytes": 613,
+        "sha256": "e364e5de56333fcefe83af29783e2481630103d844493bd5c2834880b68a0b0d"
+      },
+      "after": null
+    },
+    {
+      "path": "docs/report-revisions/1-to-2.patch",
+      "change": "deleted",
+      "before": {
+        "bytes": 1613610,
+        "sha256": "6494503da2de8b160d39609aa7d8c17d44b7aa75fd51ae90b1a15bfc2595f567"
+      },
+      "after": null
+    },
+    {
+      "path": "결제 내역/KG이니시스 온라인 영수증.pdf",
+      "change": "deleted",
+      "before": {
+        "bytes": 67616,
+        "sha256": "dfec0fa1c90c5aff6892ee8c02e59720a2f4bc0341dc0cde6e7fb35f2f40e338"
+      },
+      "after": null
+    },
+    {
+      "path": "결제 내역/거래명세서1.pdf",
+      "change": "deleted",
+      "before": {
+        "bytes": 151030,
+        "sha256": "61ffc9bc9d12b9fa8c87a7f9c6acce619fcc37b25e4d1e366d4359fdcfd8d6f2"
+      },
+      "after": null
+    },
+    {
+      "path": "보고서/1차/ICT Safety PBL_실내이상징후감지_2팀_결과보고서_v0.2_곽윤석개발반영.docx",
+      "change": "deleted",
+      "before": {
+        "bytes": 721785,
+        "sha256": "566b2cea98b69e9c3b0d349980af203d05c29bac7700ff738d0e8e0682fb3767"
+      },
+      "after": null
+    },
+    {
+      "path": "보고서/2차/ICT Safety PBL_실내이상징후감지_2팀_결과보고서_v0.3_서식복원.docx",
+      "change": "deleted",
+      "before": {
+        "bytes": 683961,
+        "sha256": "461de16df7a2ca76f6b75e78bf36fcf4fd4ed4148ae7e984c420615924edd4c0"
+      },
+      "after": null
+    },
+    {
+      "path": "보고서/README.md",
+      "change": "deleted",
+      "before": {
+        "bytes": 562,
+        "sha256": "d698d802ef5c0d8af6c52bb25807049254546c58037119596d02bf9defc780a1"
+      },
+      "after": null
+    }
+  ]
+}

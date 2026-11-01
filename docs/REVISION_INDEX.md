@@ -16,6 +16,14 @@
 
 | 자료 | 안내 |
 | :--- | :--- |
-| 보고서 1차·2차 | [전체 원문](../보고서/README.md) · [본문·서식 비교](report-revisions/1-to-2.md) |
 | 측정 원본 | [행·열·기록 시각](DATA.md) |
-| 부품 구매 문서 | [결제 내역](../결제%20내역/) |
+
+
+<details>
+<summary>🧹 공개 자료 정리 기록</summary>
+
+| 검수 대상 | 연결 자료 | 상세·이번 비교 |
+| :--- | :--- | :--- |
+| **기존 코드와 자료** | [📁 검수 자료](publication-review) | [📖 정리 내용](publication-review/item-1.md) · [🔎 파일 비교](publication-review/공개파일변경.json) |
+
+</details>
