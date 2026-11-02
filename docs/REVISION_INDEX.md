@@ -1,22 +1,8 @@
-<div align="center">
+# 🗂️ 차수별 독립 프로젝트 안내
 
-# 🗂️ 차수별 변화
+[🏠 프로젝트 첫 화면](../README.md)에서 전체 구현을 읽고 아래에서 실제 차수·최종본·부분 자료를 선택할 수 있습니다. 각 상세 페이지에는 해당 코드·설정·자료 종류에 맞는 기능·사용 조건·실제 관측과 전체 비교를 연결했습니다.
 
-[🏠 프로젝트](../README.md) · [📚 기존 상세 안내](VERSIONS.md)
-
-</div>
-
-| 자료 | 내용 | 파일 | 상세·비교 |
-| :--- | :--- | :--- | :--- |
-| **1차** | DHT 센서·LCD·RGB 표시와 초기 PC 수집기·측정 CSV | [📁 열기](../%EC%BD%94%EB%93%9C/1%EC%B0%A8) | [📖 상세](revisions/step-1.md) · [🔎 기존 설명](versions/first.md) · [전체 비교](revisions/step-1.patch) |
-| **최종** | AM1008W-K·일곱 측정값 검사와 전체 CSV | [📁 열기](../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) | [📖 상세](revisions/step-2.md) · [🔎 기존 설명](versions/latest.md) · [전체 비교](revisions/step-2.patch) |
-
-
-## 📑 보고서와 측정 자료
-
-| 자료 | 안내 |
-| :--- | :--- |
-| 측정 원본 | [행·열·기록 시각](DATA.md) |
-
-
-
+| 차수·자료 | 자료 폴더·원본 | 상세 설명 | 직전 비교·범위 |
+|---|---|---|---|
+| 1차 | [자료 폴더](../%EC%BD%94%EB%93%9C/1%EC%B0%A8) | [상세 설명](revisions/step-1.md) | [전체 비교·범위](revisions/step-1.patch) |
+| 최종 | [자료 폴더](../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) | [상세 설명](revisions/step-2.md) | [전체 비교·범위](revisions/step-2.patch) |

@@ -17,14 +17,30 @@ Arduino로 실내 공기질을 측정하고 화면 표시와 Python CSV 기록�
 
 </div>
 
+<a name="implementation-details"></a>
+
+## 🧩 센서 프레임에서 CSV 한 행까지
+
+Arduino는 DHT11과 AM1008W-K를 읽어 LCD·RGB LED·시리얼 출력으로 나누고, PC의 `pc_csv_logger.py`가 수신 시각을 붙여 저장합니다.1차는 온도·습도2개, 최종은 DHT온습도·AM온습도·CO₂·VOC·PM2.5의7개 측정값입니다. 최종 CSV는 timestamp를 앞에 붙인8열이며 파일을 air_log.csv로 분리합니다.
+
+최종 `readAM1008W`는 주소0x28의25바이트 응답에서 헤더0x16·길이·XOR 체크섬을 확인합니다. LCD0x27·16×2와 같은 I²C 버스를 사용하고 DHT는2번 핀, RGB는9/10/11번입니다. 화면은 DHT→AM온습도→공기질을3초씩 순환하고16칸 공백 채움으로 잔상을 지웁니다. 읽기에 성공한 센서 중 가장 높은 등급을 LED에 표시하며 전부 실패하면 끕니다.
+
+PC `parse_line`은 쉼표7필드·숫자/빈칸·최소 한 개 값이라는 조건을 적용합니다. 헤더·깨진 열 수·모두 빈 행은 저장하지 않고 일부 실패는 빈칸으로 남깁니다. 기본 COM4·9600baud·2초 timeout으로 열고2초 대기와 버퍼 초기화 뒤 기록합니다. UTF-8 추가 모드에서 빈 파일일 때만 헤더를 만들고 매 행 flush합니다. Ctrl+C 뒤 finally에서 포트를 닫으며 자동 포트 재연결은 구현되어 있지 않습니다.
+
+준비할 때 센서 배선·보드·DHT/LCD 라이브러리·pyserial·실제 PORT를 확인하고 시리얼 모니터와 PC 수집기가 같은 포트를 동시에 점유하지 않게 합니다. 새 측정의 OUTPUT_FILE을 분리하면 이전 기록을 보존할 수 있습니다. PC 시각은 센서 자체 시각이 아니며, 저장된 예시 CSV를 새 공간의 측정 결과로 해석하지 않습니다. 등급별 경계값과 오류 처리 함수는 최종 차수 설명에 모두 연결했습니다.
+
+[🗂️ 각 차수의 코드·조건·관측·전체 비교](docs/REVISION_INDEX.md)
+
+
+
 ## 🗂️ 차수와 자료 둘러보기
 
 [**📖 전체 차수·파일별 변화 보기 →**](docs/REVISION_INDEX.md)
 
-| 차수·자료 | 내용 | 원본 파일 | 상세·비교 |
-| :--- | :--- | :--- | :--- |
-| **코드 1차** | DHT 센싱과 초기 CSV 수집 | [📁 열기](%EC%BD%94%EB%93%9C/1%EC%B0%A8) | [📖 설명](docs/revisions/step-1.md) · [전체 비교](docs/revisions/step-1.patch) |
-| **코드 최종** | AM1008W-K·LCD 순환·일곱 값 검사 | [📁 열기](%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) | [📖 설명](docs/revisions/step-2.md) · [전체 비교](docs/revisions/step-2.patch) |
+| 차수·자료 | 자료 폴더·원본 | 상세 설명 | 직전 비교·범위 |
+|---|---|---|---|
+| 1차 | [자료 폴더](%EC%BD%94%EB%93%9C/1%EC%B0%A8) | [상세 설명](docs/revisions/step-1.md) | [전체 비교·범위](docs/revisions/step-1.patch) |
+| 최종 | [자료 폴더](%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) | [상세 설명](docs/revisions/step-2.md) | [전체 비교·범위](docs/revisions/step-2.patch) |
 
 
 <a name="overview"></a>
@@ -246,6 +262,3 @@ CSV는 저장된 전체 기록입니다. 파일의 처음과 마지막 시각 �
 
 
 [**📊 측정 행 수·시각·열 구성 확인 →**](docs/DATA.md)
-
-
-
