@@ -23,8 +23,8 @@ Arduino로 실내 공기질을 측정하고 화면 표시와 Python CSV 기록�
 
 | 차수·자료 | 내용 | 원본 파일 | 상세·비교 |
 | :--- | :--- | :--- | :--- |
-| **코드 1차** | DHT 센싱과 초기 CSV 수집 | [📁 열기](%EC%BD%94%EB%93%9C/1%EC%B0%A8) | [📖 설명](docs/revisions/step-1.md) |
-| **코드 최종** | AM1008W-K·LCD 순환·일곱 값 검사 | [📁 열기](%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) | [📖 설명](docs/revisions/step-2.md) |
+| **코드 1차** | DHT 센싱과 초기 CSV 수집 | [📁 열기](%EC%BD%94%EB%93%9C/1%EC%B0%A8) | [📖 설명](docs/revisions/step-1.md) · [전체 비교](docs/revisions/step-1.patch) |
+| **코드 최종** | AM1008W-K·LCD 순환·일곱 값 검사 | [📁 열기](%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) | [📖 설명](docs/revisions/step-2.md) · [전체 비교](docs/revisions/step-2.patch) |
 
 
 <a name="overview"></a>
@@ -248,13 +248,4 @@ CSV는 저장된 전체 기록입니다. 파일의 처음과 마지막 시각 �
 [**📊 측정 행 수·시각·열 구성 확인 →**](docs/DATA.md)
 
 
-<details>
-<summary>🧹 공개 자료 정리 기록</summary>
 
-| 검수 대상 | 연결 자료 | 상세·이번 비교 |
-| :--- | :--- | :--- |
-| **기존 코드와 자료** | [📁 검수 자료](docs/publication-review) | [📖 정리 내용](docs/publication-review/item-1.md) · [🔎 파일 비교](docs/publication-review/공개파일변경.json) |
-
-[🗂️ 전체 차수와 자료](docs/REVISION_INDEX.md)
-
-</details>
