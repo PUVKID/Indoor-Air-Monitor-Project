@@ -172,7 +172,7 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 #### LEVEL 1 · [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)
 
-| 정의 · 소스에 적힌 역할 |
+| 내용 |
 | --- |
 | **정의:** [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22)<br>**소스에 적힌 역할:** 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
 | **정의:** [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34)<br>**소스에 적힌 역할:** 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
@@ -389,7 +389,7 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 #### LEVEL 2 · [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)
 
-| 정의 · 소스에 적힌 역할 |
+| 내용 |
 | --- |
 | **정의:** [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22)<br>**소스에 적힌 역할:** 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
 | **정의:** [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34)<br>**소스에 적힌 역할:** 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
@@ -569,7 +569,7 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 #### LEVEL 3 · [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)
 
-| 정의 · 소스에 적힌 역할 |
+| 내용 |
 | --- |
 | **정의:** [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22)<br>**소스에 적힌 역할:** 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
 | **정의:** [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34)<br>**소스에 적힌 역할:** 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
@@ -659,7 +659,7 @@ parse_line은 센서값 7필드가 숫자 또는 빈칸인지 확인합니다. �
 
 ### LEVEL 4 · 이 차수 구현의 실제 근거
 
-| 파일 · 원문에 정의된 역할·구성 |
+| 내용 |
 | --- |
 | **파일:** [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)<br>**원문에 정의된 역할·구성:** 정의: `is_number_or_blank`, `parse_line`, `main` |
 | **파일:** [아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino)<br>**원문에 정의된 역할·구성:** 소스 본문과 설정을 함께 읽는 구성요소 |
@@ -809,7 +809,7 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 #### LEVEL 4 · [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)
 
-| 정의 · 소스에 적힌 역할 |
+| 내용 |
 | --- |
 | **정의:** [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22)<br>**소스에 적힌 역할:** 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
 | **정의:** [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34)<br>**소스에 적힌 역할:** 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
@@ -926,7 +926,7 @@ DHT와 AM1008W-K를 함께 읽고 LCD의 DHT·AM 온습도·공기질 화면을 
 <a name="-실제-자료-구성"></a>
 ## 실제 자료 구성
 
-| 경로 · 자료 종류 |
+| 내용 |
 | --- |
 | **경로:** [CSV 파이썬 코드/](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C)<br>**자료 종류:** 하위 자료 폴더 |
 | **경로:** [아두이노 코드/](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C)<br>**자료 종류:** 하위 자료 폴더 |
@@ -937,7 +937,7 @@ DHT와 AM1008W-K를 함께 읽고 LCD의 DHT·AM 온습도·공기질 화면을 
 <a name="-주요-모듈과-코드-읽기"></a>
 ## 주요 모듈과 코드 읽기
 
-| 파일 · 원문에 정의된 역할·구성 |
+| 내용 |
 | --- |
 | **파일:** [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)<br>**원문에 정의된 역할·구성:** 정의: `is_number_or_blank`, `parse_line`, `main` |
 | **파일:** [아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino)<br>**원문에 정의된 역할·구성:** 소스 본문과 설정을 함께 읽는 구성요소 |
@@ -1081,7 +1081,7 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 ### [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)
 
-| 정의 · 소스에 적힌 역할 |
+| 내용 |
 | --- |
 | **정의:** [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22)<br>**소스에 적힌 역할:** 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
 | **정의:** [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34)<br>**소스에 적힌 역할:** 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |

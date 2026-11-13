@@ -49,7 +49,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 #### LEVEL 1 · [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
 
 
-| 설정·옵션 · 코드의 선언 |
+| 내용 |
 | --- |
 | **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5)<br>**코드의 선언:** `정의="COM3"` |
 | **설정·옵션:** [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6)<br>**코드의 선언:** `정의=9600` |
@@ -134,7 +134,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 #### LEVEL 2 · [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
 
 
-| 설정·옵션 · 코드의 선언 |
+| 내용 |
 | --- |
 | **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5)<br>**코드의 선언:** `정의="COM3"` |
 | **설정·옵션:** [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6)<br>**코드의 선언:** `정의=9600` |
@@ -184,7 +184,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 #### LEVEL 3 · [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
 
 
-| 설정·옵션 · 코드의 선언 |
+| 내용 |
 | --- |
 | **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5)<br>**코드의 선언:** `정의="COM3"` |
 | **설정·옵션:** [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6)<br>**코드의 선언:** `정의=9600` |
@@ -254,7 +254,7 @@ DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송�
 
 ### LEVEL 4 · 이 차수 구현의 실제 근거
 
-| 파일 · 원문에 정의된 역할·구성 |
+| 내용 |
 | --- |
 | **파일:** [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)<br>**원문에 정의된 역할·구성:** 소스 본문과 설정을 함께 읽는 구성요소 |
 | **파일:** [dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino)<br>**원문에 정의된 역할·구성:** 소스 본문과 설정을 함께 읽는 구성요소 |
@@ -290,7 +290,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 #### LEVEL 4 · [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
 
 
-| 설정·옵션 · 코드의 선언 |
+| 내용 |
 | --- |
 | **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5)<br>**코드의 선언:** `정의="COM3"` |
 | **설정·옵션:** [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6)<br>**코드의 선언:** `정의=9600` |
@@ -396,7 +396,7 @@ DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송�
 <a name="-실제-자료-구성"></a>
 ## 실제 자료 구성
 
-| 경로 · 자료 종류 |
+| 내용 |
 | --- |
 | **경로:** [dht_lcd_rgb_csv/](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/dht_lcd_rgb_csv)<br>**자료 종류:** 하위 자료 폴더 |
 | **경로:** [README.md](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/README.md)<br>**자료 종류:** MD 파일 |
@@ -406,7 +406,7 @@ DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송�
 <a name="-주요-모듈과-코드-읽기"></a>
 ## 주요 모듈과 코드 읽기
 
-| 파일 · 원문에 정의된 역할·구성 |
+| 내용 |
 | --- |
 | **파일:** [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)<br>**원문에 정의된 역할·구성:** 소스 본문과 설정을 함께 읽는 구성요소 |
 | **파일:** [dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino)<br>**원문에 정의된 역할·구성:** 소스 본문과 설정을 함께 읽는 구성요소 |
@@ -432,7 +432,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 ### [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
 
 
-| 설정·옵션 · 코드의 선언 |
+| 내용 |
 | --- |
 | **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5)<br>**코드의 선언:** `정의="COM3"` |
 | **설정·옵션:** [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6)<br>**코드의 선언:** `정의=9600` |
