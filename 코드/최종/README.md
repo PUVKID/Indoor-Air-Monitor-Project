@@ -6,7 +6,7 @@
 ### 수요일 PBL · Arduino × Python
 
 온도와 습도부터 CO₂, VOC, 초미세먼지까지.<br>
-센서로 측정하고, LCD와 RGB LED로 확인하고, CSV로 기록합니다.
+**센서**로 측정하고, LCD와 RGB LED로 확인하고, CSV로 기록합니다.
 
 ![Arduino](https://img.shields.io/badge/Arduino-00979D?style=flat-square&logo=arduino&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
@@ -16,6 +16,10 @@
 [빠른 시작](#-빠른-시작) · [하드웨어 연결](#-하드웨어-연결) · [데이터 구성](#-데이터-구성)
 
 </div>
+<!-- user-levels:start -->
+**수준별 전체 안내:** [LEVEL 1 - Beginner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) · [LEVEL 2 - Explorer](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) · [LEVEL 3 - Practitioner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) · [LEVEL 4 - Advanced](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) · [LEVEL 5 - Expert](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)
+<!-- user-levels:end -->
+
 
 ---
 

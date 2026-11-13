@@ -3,6 +3,284 @@
 <a name="-1차"></a>
 # 1차
 
+<!-- reading-levels:start -->
+[LEVEL 1 - Beginner](#reading-level-1) · [LEVEL 2 - Explorer](#reading-level-2) · [LEVEL 3 - Practitioner](#reading-level-3) · [LEVEL 4 - Advanced](#reading-level-4) · [LEVEL 5 - Expert](#reading-level-5)
+
+프로젝트 전체의 설명은 [LEVEL 1 - Beginner](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md)부터 [LEVEL 5 - Expert](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)까지 같은 범위로 연결됩니다.
+
+<a id="reading-level-1"></a>
+## LEVEL 1 - Beginner
+
+### LEVEL 1 · 이 자료가 하는 일과 달라진 점
+
+DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송합니다.
+
+### LEVEL 1 · 실제 동작을 따라 읽기
+
+DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송합니다.
+
+초기 Python 수집기는 쉼표로 나눈 2개 필드를 받아 PC 시각을 붙입니다. 최종판의 7필드 숫자·빈칸 검사를 소급하지 않습니다.
+
+기본 포트는 COM3, 전송속도는 9600 baud, 파일명은 dht_log.csv입니다.
+
+CSV는 값을 쉼표로 나눈 표 파일입니다. DHT11은 온도와 습도를 읽는 센서입니다. LCD는 측정값이나 상태를 문자로 보여 주는 표시창입니다. RGB LED는 색을 바꾸어 상태를 나타내는 불빛입니다. baud는 장치와 PC가 맞춰야 하는 통신 속도의 단위입니다.
+
+입력 — DHT 온습도
+
+처리 — Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록
+
+출력 — dht_log.csv: timestamp·temperature_C·humidity_%
+
+### LEVEL 1 · 준비하고 확인할 것
+
+DHT sensor library와 LiquidCrystal_I2C를 지원하는 Arduino IDE·보드·USB 포트를 준비합니다. Python에는 pyserial이 필요합니다. LCD의 I²C 주소와 실제 보드 SDA/SCL을 확인합니다.
+
+Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 확인합니다. 시리얼 모니터를 닫은 뒤 수집기 폴더에서 `python pc_csv_logger.py`로 기록하고 Ctrl+C로 끝냅니다.
+
+#### LEVEL 1 · 초기 수집기의 범위
+
+1차는 DHT11 온도·습도 두 값과 PC 수신시각을 기록하는 구성입니다. 기본 COM3·9600baud·dht_log.csv를 사용합니다. 최종판은 AM1008W-K의 다섯 측정값과 숫자/빈칸 검사를 더하고 파일을 air_log.csv로 분리하므로, 두 차수 CSV의 열을 같은 형식으로 합치지 않습니다. 실제 수집 함수와 스케치의 필드 순서는 아래 연결된 소스에서 확인할 수 있습니다.
+
+<details>
+<summary>함수 역할·기본값·입력 거부 조건의 세부 참조</summary>
+
+다음 항목은 이 자료의 Python 소스에 명시된 선언입니다. 전체 분기와 호출 순서는 각 행의 코드 위치에서 이어서 읽을 수 있습니다.
+
+#### LEVEL 1 · [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
+
+
+| 설정·옵션 | 코드의 선언 |
+|---|---|
+| [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5) | `정의="COM3"` |
+| [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6) | `정의=9600` |
+| [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7) | `정의="dht_log.csv"` |
+
+</details>
+
+1. 보드와 센서·LCD·RGB LED 배선을 확인합니다.
+2. 이 차수 .ino를 업로드하고 실제 센서 출력을 확인합니다.
+3. 수집기의 PORT를 실제 장치로 지정하고 OUTPUT_FILE을 새 기록 이름으로 정합니다.
+4. Python 수집기를 실행해 헤더·열 수·시각·센서값을 확인합니다.
+
+### LEVEL 1 · 결과와 주의할 범위
+
+출력 CSV는 현재 작업 폴더에 누적됩니다. 새 측정은 OUTPUT_FILE을 다른 이름으로 지정해 기존 측정 원본과 분리합니다. timestamp는 PC 수신 시각이며 센서 자체 시각이나 중단 없는 연속 측정 보증이 아닙니다.
+
+| 상황 | 확인할 내용 |
+|---|---|
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
+
+[자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
+
+<a id="reading-level-2"></a>
+## LEVEL 2 - Explorer
+
+### LEVEL 2 · 목적과 구성의 연결
+
+DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송합니다.
+
+DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송합니다.
+
+초기 Python 수집기는 쉼표로 나눈 2개 필드를 받아 PC 시각을 붙입니다. 최종판의 7필드 숫자·빈칸 검사를 소급하지 않습니다.
+
+기본 포트는 COM3, 전송속도는 9600 baud, 파일명은 dht_log.csv입니다.
+
+### LEVEL 2 · 입력에서 출력으로
+
+| 단계 | 내용 |
+|---|---|
+| 입력 | DHT 온습도 |
+| 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
+| 출력 | dht_log.csv: timestamp·temperature_C·humidity_% |
+
+입력·처리·출력은 위의 같은 자료 흐름을 다른 단계에서 읽는 기준입니다. 처리 조건과 출력의 의미를 함께 확인합니다.
+
+### LEVEL 2 · 설정과 처리 순서의 관계
+
+1. 보드와 센서·LCD·RGB LED 배선을 확인합니다.
+2. 이 차수 .ino를 업로드하고 실제 센서 출력을 확인합니다.
+3. 수집기의 PORT를 실제 장치로 지정하고 OUTPUT_FILE을 새 기록 이름으로 정합니다.
+4. Python 수집기를 실행해 헤더·열 수·시각·센서값을 확인합니다.
+
+DHT sensor library와 LiquidCrystal_I2C를 지원하는 Arduino IDE·보드·USB 포트를 준비합니다. Python에는 pyserial이 필요합니다. LCD의 I²C 주소와 실제 보드 SDA/SCL을 확인합니다.
+
+Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 확인합니다. 시리얼 모니터를 닫은 뒤 수집기 폴더에서 `python pc_csv_logger.py`로 기록하고 Ctrl+C로 끝냅니다.
+
+#### LEVEL 2 · 초기 수집기의 범위
+
+1차는 DHT11 온도·습도 두 값과 PC 수신시각을 기록하는 구성입니다. 기본 COM3·9600baud·dht_log.csv를 사용합니다. 최종판은 AM1008W-K의 다섯 측정값과 숫자/빈칸 검사를 더하고 파일을 air_log.csv로 분리하므로, 두 차수 CSV의 열을 같은 형식으로 합치지 않습니다. 실제 수집 함수와 스케치의 필드 순서는 아래 연결된 소스에서 확인할 수 있습니다.
+
+<details>
+<summary>함수 역할·기본값·입력 거부 조건의 세부 참조</summary>
+
+다음 항목은 이 자료의 Python 소스에 명시된 선언입니다. 전체 분기와 호출 순서는 각 행의 코드 위치에서 이어서 읽을 수 있습니다.
+
+#### LEVEL 2 · [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
+
+
+| 설정·옵션 | 코드의 선언 |
+|---|---|
+| [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5) | `정의="COM3"` |
+| [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6) | `정의=9600` |
+| [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7) | `정의="dht_log.csv"` |
+
+</details>
+
+### LEVEL 2 · 관측과 해석을 구분하기
+
+출력 CSV는 현재 작업 폴더에 누적됩니다. 새 측정은 OUTPUT_FILE을 다른 이름으로 지정해 기존 측정 원본과 분리합니다. timestamp는 PC 수신 시각이며 센서 자체 시각이나 중단 없는 연속 측정 보증이 아닙니다.
+
+| 상황 | 확인할 내용 |
+|---|---|
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
+
+[자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
+
+<a id="reading-level-3"></a>
+## LEVEL 3 - Practitioner
+
+### LEVEL 3 · 이 차수를 준비하는 범위
+
+DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송합니다.
+
+DHT sensor library와 LiquidCrystal_I2C를 지원하는 Arduino IDE·보드·USB 포트를 준비합니다. Python에는 pyserial이 필요합니다. LCD의 I²C 주소와 실제 보드 SDA/SCL을 확인합니다.
+
+Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 확인합니다. 시리얼 모니터를 닫은 뒤 수집기 폴더에서 `python pc_csv_logger.py`로 기록하고 Ctrl+C로 끝냅니다.
+
+#### LEVEL 3 · 초기 수집기의 범위
+
+1차는 DHT11 온도·습도 두 값과 PC 수신시각을 기록하는 구성입니다. 기본 COM3·9600baud·dht_log.csv를 사용합니다. 최종판은 AM1008W-K의 다섯 측정값과 숫자/빈칸 검사를 더하고 파일을 air_log.csv로 분리하므로, 두 차수 CSV의 열을 같은 형식으로 합치지 않습니다. 실제 수집 함수와 스케치의 필드 순서는 아래 연결된 소스에서 확인할 수 있습니다.
+
+<details>
+<summary>함수 역할·기본값·입력 거부 조건의 세부 참조</summary>
+
+다음 항목은 이 자료의 Python 소스에 명시된 선언입니다. 전체 분기와 호출 순서는 각 행의 코드 위치에서 이어서 읽을 수 있습니다.
+
+#### LEVEL 3 · [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
+
+
+| 설정·옵션 | 코드의 선언 |
+|---|---|
+| [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5) | `정의="COM3"` |
+| [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6) | `정의=9600` |
+| [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7) | `정의="dht_log.csv"` |
+
+</details>
+
+### LEVEL 3 · 실제 사용·실험 순서
+
+1. 보드와 센서·LCD·RGB LED 배선을 확인합니다.
+2. 이 차수 .ino를 업로드하고 실제 센서 출력을 확인합니다.
+3. 수집기의 PORT를 실제 장치로 지정하고 OUTPUT_FILE을 새 기록 이름으로 정합니다.
+4. Python 수집기를 실행해 헤더·열 수·시각·센서값을 확인합니다.
+
+| 단계 | 내용 |
+|---|---|
+| 입력 | DHT 온습도 |
+| 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
+| 출력 | dht_log.csv: timestamp·temperature_C·humidity_% |
+
+### LEVEL 3 · 결과와 실패를 확인하기
+
+출력 CSV는 현재 작업 폴더에 누적됩니다. 새 측정은 OUTPUT_FILE을 다른 이름으로 지정해 기존 측정 원본과 분리합니다. timestamp는 PC 수신 시각이며 센서 자체 시각이나 중단 없는 연속 측정 보증이 아닙니다.
+
+| 상황 | 확인할 내용 |
+|---|---|
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
+
+### LEVEL 3 · 실행 전 대조할 차수 조건
+
+DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송합니다.
+
+초기 Python 수집기는 쉼표로 나눈 2개 필드를 받아 PC 시각을 붙입니다. 최종판의 7필드 숫자·빈칸 검사를 소급하지 않습니다.
+
+기본 포트는 COM3, 전송속도는 9600 baud, 파일명은 dht_log.csv입니다.
+
+[자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
+
+<a id="reading-level-4"></a>
+## LEVEL 4 - Advanced
+
+### LEVEL 4 · 설계 의도와 검토 경계
+
+DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송합니다.
+
+DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송합니다.
+
+초기 Python 수집기는 쉼표로 나눈 2개 필드를 받아 PC 시각을 붙입니다. 최종판의 7필드 숫자·빈칸 검사를 소급하지 않습니다.
+
+기본 포트는 COM3, 전송속도는 9600 baud, 파일명은 dht_log.csv입니다.
+
+### LEVEL 4 · 이 차수 구현의 실제 근거
+
+| 파일 | 원문에 정의된 역할·구성 |
+|---|---|
+| [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py) | 소스 본문과 설정을 함께 읽는 구성요소 |
+| [dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino) | 소스 본문과 설정을 함께 읽는 구성요소 |
+
+| 단계 | 내용 |
+|---|---|
+| 입력 | DHT 온습도 |
+| 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
+| 출력 | dht_log.csv: timestamp·temperature_C·humidity_% |
+
+### LEVEL 4 · 조건·변경·결과를 함께 검토하기
+
+DHT sensor library와 LiquidCrystal_I2C를 지원하는 Arduino IDE·보드·USB 포트를 준비합니다. Python에는 pyserial이 필요합니다. LCD의 I²C 주소와 실제 보드 SDA/SCL을 확인합니다.
+
+Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 확인합니다. 시리얼 모니터를 닫은 뒤 수집기 폴더에서 `python pc_csv_logger.py`로 기록하고 Ctrl+C로 끝냅니다.
+
+#### LEVEL 4 · 초기 수집기의 범위
+
+1차는 DHT11 온도·습도 두 값과 PC 수신시각을 기록하는 구성입니다. 기본 COM3·9600baud·dht_log.csv를 사용합니다. 최종판은 AM1008W-K의 다섯 측정값과 숫자/빈칸 검사를 더하고 파일을 air_log.csv로 분리하므로, 두 차수 CSV의 열을 같은 형식으로 합치지 않습니다. 실제 수집 함수와 스케치의 필드 순서는 아래 연결된 소스에서 확인할 수 있습니다.
+
+<details>
+<summary>함수 역할·기본값·입력 거부 조건의 세부 참조</summary>
+
+다음 항목은 이 자료의 Python 소스에 명시된 선언입니다. 전체 분기와 호출 순서는 각 행의 코드 위치에서 이어서 읽을 수 있습니다.
+
+#### LEVEL 4 · [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
+
+
+| 설정·옵션 | 코드의 선언 |
+|---|---|
+| [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5) | `정의="COM3"` |
+| [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6) | `정의=9600` |
+| [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7) | `정의="dht_log.csv"` |
+
+</details>
+
+출력 CSV는 현재 작업 폴더에 누적됩니다. 새 측정은 OUTPUT_FILE을 다른 이름으로 지정해 기존 측정 원본과 분리합니다. timestamp는 PC 수신 시각이며 센서 자체 시각이나 중단 없는 연속 측정 보증이 아닙니다.
+
+| 상황 | 확인할 내용 |
+|---|---|
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
+
+### LEVEL 4 · 재현과 전체 비교
+
+1. 보드와 센서·LCD·RGB LED 배선을 확인합니다.
+2. 이 차수 .ino를 업로드하고 실제 센서 출력을 확인합니다.
+3. 수집기의 PORT를 실제 장치로 지정하고 OUTPUT_FILE을 새 기록 이름으로 정합니다.
+4. Python 수집기를 실행해 헤더·열 수·시각·센서값을 확인합니다.
+
+위 구성요소의 입력·출력과 실패 조건을 같은 차수 소스에 연결해 검토합니다. 전체 비교는 추가·수정·삭제와 원래 보관 범위를 구분하는 근거입니다.
+
+[자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
+<a id="reading-level-5"></a>
+## LEVEL 5 - Expert
+
+기존의 전체 설명·표·코드·함수 참조·파일별 비교는 아래에 그대로 이어집니다. [자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
+<!-- reading-levels:end -->
+
+
 DHT11의 온도와 습도를 기록하는 초기 구성입니다.
 
 
@@ -25,11 +303,18 @@ DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송�
 <a name="-핵심-기능과-보존-범위"></a>
 ## 핵심 기능과 보존 범위
 
-| 항목 | 이 차수에서 확인할 내용 |
-|---|---|
-| 1 | DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송합니다. |
-| 2 | 초기 Python 수집기는 쉼표로 나눈 2개 필드를 받아 PC 시각을 붙입니다. 최종판의 7필드 숫자·빈칸 검사를 소급하지 않습니다. |
-| 3 | 기본 포트는 COM3, 전송속도는 9600 baud, 파일명은 dht_log.csv입니다. |
+**항목:** 1
+
+**이 차수에서 확인할 내용:** DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송합니다.
+
+**항목:** 2
+
+**이 차수에서 확인할 내용:** 초기 Python 수집기는 쉼표로 나눈 2개 필드를 받아 PC 시각을 붙입니다. 최종판의 7필드 숫자·빈칸 검사를 소급하지 않습니다.
+
+**항목:** 3
+
+**이 차수에서 확인할 내용:** 기본 포트는 COM3, 전송속도는 9600 baud, 파일명은 dht_log.csv입니다.
+
 
 <a name="-입력처리출력"></a>
 ## 입력·처리·출력
