@@ -1,0 +1,100 @@
+{
+  "설명": "1차 납품 파일의 전체 바이트와 SHA-256. 이 목록 자체와 ZIP은 자기 참조를 피하기 위해 제외합니다.",
+  "파일": [
+    {
+      "path": "assets/NanumGothicBold.ttf",
+      "bytes": 2073868,
+      "sha256": "f96298f9fb18e364d2370f4c3ce948ac67a2b61af992d7234bc15c42b033c674"
+    },
+    {
+      "path": "assets/OFL.txt",
+      "bytes": 4534,
+      "sha256": "eeacf16032901d0ed0456876ec77b8f0fda6b3fecec7d972f8543eb602e6c30f"
+    },
+    {
+      "path": "tests/test_dmf_air_quality.py",
+      "bytes": 12533,
+      "sha256": "1ad53df239cf6c7858660f400ae0c6dd8d2965f16d1bfa45d0973c05b4b3488a"
+    },
+    {
+      "path": "tools/dmf_air_quality.py",
+      "bytes": 34752,
+      "sha256": "ad7fd3ca99a5d99ef31275898eae7d671c6f281eb62699ce14940fbd1bebc5b6"
+    },
+    {
+      "path": "사용안내.md",
+      "bytes": 9860,
+      "sha256": "1a09dd2505c40663df630eac4bab4ba3651c1f6c2a4fc22ae461187ea977b8b6"
+    },
+    {
+      "path": "실행결과/DMF_적용보고서.html",
+      "bytes": 10065,
+      "sha256": "7f23f91a293bf25563d25f35d3f5f7d3525be2376881562134b5b91f80a67c58"
+    },
+    {
+      "path": "실행결과/DMF_적용보고서.md",
+      "bytes": 5781,
+      "sha256": "29c75ce6f7a0cd848c659dca60701cb44c8f508d58a8288269b9293750d8d645"
+    },
+    {
+      "path": "실행결과/DMF_적용보고서.pdf",
+      "bytes": 88270,
+      "sha256": "f6f0498aad52483f54edb1503ba93cce0576c6344cb6a0e50cbc5bd6950461cd"
+    },
+    {
+      "path": "실행결과/감사_이력.json",
+      "bytes": 1254,
+      "sha256": "921536214ddf8b358e3d9b55b13ab47ff82a01f6a66638c091758ccfaa3073ef"
+    },
+    {
+      "path": "실행결과/검증_결과.json",
+      "bytes": 1366,
+      "sha256": "188e7e7a32d335e1d7c36140a54f1e9f81edac3545422988050f85ad486c25b5"
+    },
+    {
+      "path": "실행결과/모듈_증명.json",
+      "bytes": 1317,
+      "sha256": "7bfc0defad6bfc4b10dda385d9e7bbb1becdb339afe503616f0a7e93a29986a7"
+    },
+    {
+      "path": "실행결과/버전_이력.json",
+      "bytes": 2871,
+      "sha256": "8d3336d74f2e66ead06b6917a39fd459f861665e08217240fbec3bf23c35e14c"
+    },
+    {
+      "path": "실행결과/봉인_목록.json",
+      "bytes": 1945,
+      "sha256": "c5b5272a25460865a2eda62de17659ec375e76691ea601f2206db1a4c2b3de3a"
+    },
+    {
+      "path": "실행결과/분석_결과.json",
+      "bytes": 872,
+      "sha256": "780b7ca8974ff1f364fa44da67d26d066a9542ac76c036b7a5f780100e0a5db6"
+    },
+    {
+      "path": "실행결과/원본보존/CSV 파이썬 코드/air_log.csv",
+      "bytes": 34551203,
+      "sha256": "3e3584574c83d8fe56a69d263862194f5dab620308e8b133d00eb14b4be40bcc"
+    },
+    {
+      "path": "실행결과/원본보존/CSV 파이썬 코드/pc_csv_logger.py",
+      "bytes": 2265,
+      "sha256": "dfa31ebcbd9c9cac22ded7ebf55585364af4b969873891c12eec8bac09358dbd"
+    },
+    {
+      "path": "실행결과/원본보존/아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino",
+      "bytes": 6894,
+      "sha256": "02f2d255b51b88ac0a281aa07fd02f084617e0a25bfb6cb92119683dd536223a"
+    },
+    {
+      "path": "실행결과/처리_규칙.json",
+      "bytes": 660,
+      "sha256": "884c8bfa31a2f6d081da182b877a5a3a6cea3a6a0342b49bcf9e3567241a37e9"
+    },
+    {
+      "path": "실행결과/파일_무결성.json",
+      "bytes": 1597,
+      "sha256": "7d9b1f179f5af98407641f246123a92e22fea1da3b046cd6f8b22f37b1fd3da0"
+    }
+  ]
+}

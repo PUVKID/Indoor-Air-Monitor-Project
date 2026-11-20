@@ -7,3 +7,5 @@
 | --- | --- |
 | 1차 | **자료 폴더·원본** [자료 폴더](../%EC%BD%94%EB%93%9C/1%EC%B0%A8)<br>**상세 설명** [상세 설명](revisions/step-1.md)<br>**직전 비교·범위** [전체 비교·범위](revisions/step-1.patch) |
 | 최종 | **자료 폴더·원본** [자료 폴더](../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85)<br>**상세 설명** [상세 설명](revisions/step-2.md)<br>**직전 비교·범위** [전체 비교·범위](revisions/step-2.patch) |
+| DMF 적용 1차 | **자료 폴더** [자료 폴더](../DMF%20적용/1차) · **상세** [설명](revisions/dmf-1.md) · **비교** [전체 비교](revisions/dmf-1.patch) |
+| DMF 적용 최종 | 1차 납품 묶음 · [자료 폴더](../DMF%20적용/최종) · [상세 설명](revisions/dmf-1.md) · [전체 비교](revisions/dmf-1.patch) |

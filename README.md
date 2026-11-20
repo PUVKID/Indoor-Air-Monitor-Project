@@ -52,6 +52,14 @@ Arduino는 DHT11과 AM1008W-K를 읽어 LCD·RGB LED·시리얼로 출력하고,
 
 
 
+## DMF 적용 자료
+
+기존 센서 측정·CSV 기록을 보존하면서 [DMF](https://github.com/leecursion/DMF)의 데이터 관리 개념을 적용한 별도 실습 자료입니다. 외부 DMF 체크아웃을 사용하므로 해당 소스는 이 저장소에 포함하지 않습니다. **센서 장치의 새 측정이나 공식 DMF 배포를 뜻하지 않습니다.** 적용 보고서는 [HTML](DMF%20적용/1차/실행결과/DMF_적용보고서.html) · [PDF](DMF%20적용/1차/실행결과/DMF_적용보고서.pdf) · [Markdown](DMF%20적용/1차/실행결과/DMF_적용보고서.md)으로 읽을 수 있습니다. [최종 제출 묶음](DMF%20적용/최종/ICT%20안전%20PBL_DMF%20적용_제출자료.zip)도 제공합니다.
+
+| 입력 | 처리 | 확인 자료 |
+| --- | --- | --- |
+| 기존 센서 코드와 측정 CSV | 원본 해시·버전·제한 조건과 감사 이력 확인 | [DMF 적용 1차](docs/revisions/dmf-1.md) · [자료 폴더](DMF%20적용/1차) · [전체 비교](docs/revisions/dmf-1.patch) |
+
 <a name="️-차수와-자료-둘러보기"></a>
 ## 차수와 자료 둘러보기
 
@@ -61,6 +69,8 @@ Arduino는 DHT11과 AM1008W-K를 읽어 LCD·RGB LED·시리얼로 출력하고,
 | --- | --- |
 | 1차 | **자료 폴더·원본** [자료 폴더](%EC%BD%94%EB%93%9C/1%EC%B0%A8)<br>**상세 설명** [상세 설명](docs/revisions/step-1.md)<br>**직전 비교·범위** [전체 비교·범위](docs/revisions/step-1.patch) |
 | 최종 | **자료 폴더·원본** [자료 폴더](%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85)<br>**상세 설명** [상세 설명](docs/revisions/step-2.md)<br>**직전 비교·범위** [전체 비교·범위](docs/revisions/step-2.patch) |
+| DMF 적용 1차 | **자료 폴더** [자료 폴더](DMF%20적용/1차) · **상세** [설명](docs/revisions/dmf-1.md) · **비교** [전체 비교](docs/revisions/dmf-1.patch) |
+| DMF 적용 최종 | 1차 납품 묶음 · [자료 폴더](DMF%20적용/최종) · [상세 설명](docs/revisions/dmf-1.md) · [전체 비교](docs/revisions/dmf-1.patch) |
 
 
 <a name="overview"></a>
