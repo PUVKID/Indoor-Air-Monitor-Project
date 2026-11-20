@@ -49,11 +49,11 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 #### LEVEL 1 · [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
 
 
-| 내용 |
-| --- |
-| **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5)<br>**코드의 선언:** `정의="COM3"` |
-| **설정·옵션:** [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6)<br>**코드의 선언:** `정의=9600` |
-| **설정·옵션:** [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7)<br>**코드의 선언:** `정의="dht_log.csv"` |
+| 설정·옵션 | 코드의 선언 |
+| --- | --- |
+| [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5) | `정의="COM3"` |
+| [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6) | `정의=9600` |
+| [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7) | `정의="dht_log.csv"` |
 
 </details>
 
@@ -66,18 +66,11 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 출력 CSV는 현재 작업 폴더에 누적됩니다. 새 측정은 OUTPUT_FILE을 다른 이름으로 지정해 기존 측정 원본과 분리합니다. timestamp는 PC 수신 시각이며 센서 자체 시각이나 중단 없는 연속 측정 보증이 아닙니다.
 
-**상황:** 포트를 열지 못함
-
-**확인할 내용:** PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다.
-
-**상황:** LCD 표시 오류
-
-**확인할 내용:** 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다.
-
-**상황:** 측정 누락
-
-**확인할 내용:** 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다.
-
+| 상황 | 확인할 내용 |
+| --- | --- |
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
 
 [자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
 
@@ -96,18 +89,11 @@ DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송�
 
 ### LEVEL 2 · 입력에서 출력으로
 
-**단계:** 입력
-
-**내용:** DHT 온습도
-
-**단계:** 처리
-
-**내용:** Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록
-
-**단계:** 출력
-
-**내용:** dht_log.csv: timestamp·temperature_C·humidity_%
-
+| 단계 | 내용 |
+| --- | --- |
+| 입력 | DHT 온습도 |
+| 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
+| 출력 | dht_log.csv: timestamp·temperature_C·humidity_% |
 
 입력·처리·출력은 위의 같은 자료 흐름을 다른 단계에서 읽는 기준입니다. 처리 조건과 출력의 의미를 함께 확인합니다.
 
@@ -134,11 +120,11 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 #### LEVEL 2 · [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
 
 
-| 내용 |
-| --- |
-| **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5)<br>**코드의 선언:** `정의="COM3"` |
-| **설정·옵션:** [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6)<br>**코드의 선언:** `정의=9600` |
-| **설정·옵션:** [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7)<br>**코드의 선언:** `정의="dht_log.csv"` |
+| 설정·옵션 | 코드의 선언 |
+| --- | --- |
+| [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5) | `정의="COM3"` |
+| [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6) | `정의=9600` |
+| [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7) | `정의="dht_log.csv"` |
 
 </details>
 
@@ -146,18 +132,11 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 출력 CSV는 현재 작업 폴더에 누적됩니다. 새 측정은 OUTPUT_FILE을 다른 이름으로 지정해 기존 측정 원본과 분리합니다. timestamp는 PC 수신 시각이며 센서 자체 시각이나 중단 없는 연속 측정 보증이 아닙니다.
 
-**상황:** 포트를 열지 못함
-
-**확인할 내용:** PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다.
-
-**상황:** LCD 표시 오류
-
-**확인할 내용:** 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다.
-
-**상황:** 측정 누락
-
-**확인할 내용:** 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다.
-
+| 상황 | 확인할 내용 |
+| --- | --- |
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
 
 [자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
 
@@ -184,11 +163,11 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 #### LEVEL 3 · [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
 
 
-| 내용 |
-| --- |
-| **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5)<br>**코드의 선언:** `정의="COM3"` |
-| **설정·옵션:** [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6)<br>**코드의 선언:** `정의=9600` |
-| **설정·옵션:** [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7)<br>**코드의 선언:** `정의="dht_log.csv"` |
+| 설정·옵션 | 코드의 선언 |
+| --- | --- |
+| [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5) | `정의="COM3"` |
+| [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6) | `정의=9600` |
+| [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7) | `정의="dht_log.csv"` |
 
 </details>
 
@@ -199,35 +178,21 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 3. 수집기의 PORT를 실제 장치로 지정하고 OUTPUT_FILE을 새 기록 이름으로 정합니다.
 4. Python 수집기를 실행해 헤더·열 수·시각·센서값을 확인합니다.
 
-**단계:** 입력
-
-**내용:** DHT 온습도
-
-**단계:** 처리
-
-**내용:** Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록
-
-**단계:** 출력
-
-**내용:** dht_log.csv: timestamp·temperature_C·humidity_%
-
+| 단계 | 내용 |
+| --- | --- |
+| 입력 | DHT 온습도 |
+| 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
+| 출력 | dht_log.csv: timestamp·temperature_C·humidity_% |
 
 ### LEVEL 3 · 결과와 실패를 확인하기
 
 출력 CSV는 현재 작업 폴더에 누적됩니다. 새 측정은 OUTPUT_FILE을 다른 이름으로 지정해 기존 측정 원본과 분리합니다. timestamp는 PC 수신 시각이며 센서 자체 시각이나 중단 없는 연속 측정 보증이 아닙니다.
 
-**상황:** 포트를 열지 못함
-
-**확인할 내용:** PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다.
-
-**상황:** LCD 표시 오류
-
-**확인할 내용:** 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다.
-
-**상황:** 측정 누락
-
-**확인할 내용:** 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다.
-
+| 상황 | 확인할 내용 |
+| --- | --- |
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
 
 ### LEVEL 3 · 실행 전 대조할 차수 조건
 
@@ -254,23 +219,16 @@ DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송�
 
 ### LEVEL 4 · 이 차수 구현의 실제 근거
 
-| 내용 |
-| --- |
-| **파일:** [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)<br>**원문에 정의된 역할·구성:** 소스 본문과 설정을 함께 읽는 구성요소 |
-| **파일:** [dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino)<br>**원문에 정의된 역할·구성:** 소스 본문과 설정을 함께 읽는 구성요소 |
+| 파일 | 원문에 정의된 역할·구성 |
+| --- | --- |
+| [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py) | 소스 본문과 설정을 함께 읽는 구성요소 |
+| [dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino) | 소스 본문과 설정을 함께 읽는 구성요소 |
 
-**단계:** 입력
-
-**내용:** DHT 온습도
-
-**단계:** 처리
-
-**내용:** Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록
-
-**단계:** 출력
-
-**내용:** dht_log.csv: timestamp·temperature_C·humidity_%
-
+| 단계 | 내용 |
+| --- | --- |
+| 입력 | DHT 온습도 |
+| 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
+| 출력 | dht_log.csv: timestamp·temperature_C·humidity_% |
 
 ### LEVEL 4 · 조건·변경·결과를 함께 검토하기
 
@@ -290,28 +248,21 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 #### LEVEL 4 · [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
 
 
-| 내용 |
-| --- |
-| **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5)<br>**코드의 선언:** `정의="COM3"` |
-| **설정·옵션:** [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6)<br>**코드의 선언:** `정의=9600` |
-| **설정·옵션:** [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7)<br>**코드의 선언:** `정의="dht_log.csv"` |
+| 설정·옵션 | 코드의 선언 |
+| --- | --- |
+| [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5) | `정의="COM3"` |
+| [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6) | `정의=9600` |
+| [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7) | `정의="dht_log.csv"` |
 
 </details>
 
 출력 CSV는 현재 작업 폴더에 누적됩니다. 새 측정은 OUTPUT_FILE을 다른 이름으로 지정해 기존 측정 원본과 분리합니다. timestamp는 PC 수신 시각이며 센서 자체 시각이나 중단 없는 연속 측정 보증이 아닙니다.
 
-**상황:** 포트를 열지 못함
-
-**확인할 내용:** PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다.
-
-**상황:** LCD 표시 오류
-
-**확인할 내용:** 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다.
-
-**상황:** 측정 누락
-
-**확인할 내용:** 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다.
-
+| 상황 | 확인할 내용 |
+| --- | --- |
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
 
 ### LEVEL 4 · 재현과 전체 비교
 
@@ -368,18 +319,11 @@ DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송�
 <a name="-입력처리출력"></a>
 ## 입력·처리·출력
 
-**단계:** 입력
-
-**내용:** DHT 온습도
-
-**단계:** 처리
-
-**내용:** Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록
-
-**단계:** 출력
-
-**내용:** dht_log.csv: timestamp·temperature_C·humidity_%
-
+| 단계 | 내용 |
+| --- | --- |
+| 입력 | DHT 온습도 |
+| 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
+| 출력 | dht_log.csv: timestamp·temperature_C·humidity_% |
 
 <a name="usage"></a>
 
@@ -396,20 +340,20 @@ DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송�
 <a name="-실제-자료-구성"></a>
 ## 실제 자료 구성
 
-| 내용 |
-| --- |
-| **경로:** [dht_lcd_rgb_csv/](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/dht_lcd_rgb_csv)<br>**자료 종류:** 하위 자료 폴더 |
-| **경로:** [README.md](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/README.md)<br>**자료 종류:** MD 파일 |
-| **경로:** [dht_log.csv](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/dht_log.csv)<br>**자료 종류:** CSV 파일 |
-| **경로:** [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)<br>**자료 종류:** PY 파일 |
+| 경로 | 자료 종류 |
+| --- | --- |
+| [dht_lcd_rgb_csv/](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/dht_lcd_rgb_csv) | 하위 자료 폴더 |
+| [README.md](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/README.md) | MD 파일 |
+| [dht_log.csv](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/dht_log.csv) | CSV 파일 |
+| [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py) | PY 파일 |
 
 <a name="-주요-모듈과-코드-읽기"></a>
 ## 주요 모듈과 코드 읽기
 
-| 내용 |
-| --- |
-| **파일:** [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)<br>**원문에 정의된 역할·구성:** 소스 본문과 설정을 함께 읽는 구성요소 |
-| **파일:** [dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino)<br>**원문에 정의된 역할·구성:** 소스 본문과 설정을 함께 읽는 구성요소 |
+| 파일 | 원문에 정의된 역할·구성 |
+| --- | --- |
+| [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py) | 소스 본문과 설정을 함께 읽는 구성요소 |
+| [dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino) | 소스 본문과 설정을 함께 읽는 구성요소 |
 
 <a name="setup"></a>
 
@@ -432,11 +376,11 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 ### [pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py)
 
 
-| 내용 |
-| --- |
-| **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5)<br>**코드의 선언:** `정의="COM3"` |
-| **설정·옵션:** [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6)<br>**코드의 선언:** `정의=9600` |
-| **설정·옵션:** [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7)<br>**코드의 선언:** `정의="dht_log.csv"` |
+| 설정·옵션 | 코드의 선언 |
+| --- | --- |
+| [`PORT`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L5) | `정의="COM3"` |
+| [`BAUD`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L6) | `정의=9600` |
+| [`OUTPUT_FILE`](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8/pc_csv_logger.py#L7) | `정의="dht_log.csv"` |
 
 </details>
 
@@ -450,18 +394,11 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 <a name="️-제약과-문제-해결"></a>
 ## 제약과 문제 해결
 
-**상황:** 포트를 열지 못함
-
-**확인할 내용:** PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다.
-
-**상황:** LCD 표시 오류
-
-**확인할 내용:** 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다.
-
-**상황:** 측정 누락
-
-**확인할 내용:** 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다.
-
+| 상황 | 확인할 내용 |
+| --- | --- |
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
 
 <a name="changes"></a>
 
@@ -479,18 +416,11 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 [전체 텍스트 차이](step-1.patch) · [파일별 크기·SHA-256](step-1-files.json)
 
-**구분:** 추가
-
-**파일:** `dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino`
-
-**구분:** 추가
-
-**파일:** `dht_log.csv`
-
-**구분:** 추가
-
-**파일:** `pc_csv_logger.py`
-
+| 구분 | 파일 |
+| --- | --- |
+| 추가 | `dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino` |
+| 추가 | `dht_log.csv` |
+| 추가 | `pc_csv_logger.py` |
 
 </details>
 

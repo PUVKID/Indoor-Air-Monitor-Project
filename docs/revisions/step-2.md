@@ -73,54 +73,16 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 CSV는 PC 수신 시각과 센서 값 7개로 구성됩니다. `timestamp`는 PC의 로컬 시각이며 시간대 정보는 포함하지 않습니다.
 
-**열:** `timestamp`
-
-**의미:** PC에서 데이터를 수신한 시각
-
-**단위:** `YYYY-MM-DD HH:MM:SS`
-
-**열:** `dht_temp_C`
-
-**의미:** DHT 온도
-
-**단위:** °C
-
-**열:** `dht_humi_pct`
-
-**의미:** DHT 상대습도
-
-**단위:** %
-
-**열:** `am_temp_C`
-
-**의미:** AM1008W-K 온도
-
-**단위:** °C
-
-**열:** `am_humi_pct`
-
-**의미:** AM1008W-K 상대습도
-
-**단위:** %
-
-**열:** `co2_ppm`
-
-**의미:** CO₂
-
-**단위:** ppm
-
-**열:** `voc_level`
-
-**의미:** VOC 단계
-
-**단위:** 센서 단계 값
-
-**열:** `pm25_ugm3`
-
-**의미:** PM2.5
-
-**단위:** µg/m³
-
+| 열 | 의미 | 단위 |
+| --- | --- | --- |
+| `timestamp` | PC에서 데이터를 수신한 시각 | `YYYY-MM-DD HH:MM:SS` |
+| `dht_temp_C` | DHT 온도 | °C |
+| `dht_humi_pct` | DHT 상대습도 | % |
+| `am_temp_C` | AM1008W-K 온도 | °C |
+| `am_humi_pct` | AM1008W-K 상대습도 | % |
+| `co2_ppm` | CO₂ | ppm |
+| `voc_level` | VOC 단계 | 센서 단계 값 |
+| `pm25_ugm3` | PM2.5 | µg/m³ |
 
 수집기는 헤더, 열 개수가 잘못된 행, 숫자 또는 빈칸 이외의 값이 있는 행을 건너뜁니다. 일부 센서가 실패한 행은 정상 항목을 보존합니다.
 
@@ -172,10 +134,10 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 #### LEVEL 1 · [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)
 
-| 내용 |
-| --- |
-| **정의:** [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22)<br>**소스에 적힌 역할:** 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
-| **정의:** [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34)<br>**소스에 적힌 역할:** 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
+| 정의 | 소스에 적힌 역할 |
+| --- | --- |
+| [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22) | 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
+| [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34) | 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
 
 **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L6)
 
@@ -205,18 +167,11 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 출력 CSV는 현재 작업 폴더에 누적됩니다. 새 측정은 OUTPUT_FILE을 다른 이름으로 지정해 기존 측정 원본과 분리합니다. timestamp는 PC 수신 시각이며 센서 자체 시각이나 중단 없는 연속 측정 보증이 아닙니다.
 
-**상황:** 포트를 열지 못함
-
-**확인할 내용:** PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다.
-
-**상황:** LCD 표시 오류
-
-**확인할 내용:** 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다.
-
-**상황:** 측정 누락
-
-**확인할 내용:** 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다.
-
+| 상황 | 확인할 내용 |
+| --- | --- |
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
 
 [자료 폴더](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) · [직전 비교·자료 범위](step-2.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
 
@@ -237,18 +192,11 @@ parse_line은 센서값 7필드가 숫자 또는 빈칸인지 확인합니다. �
 
 ### LEVEL 2 · 입력에서 출력으로
 
-**단계:** 입력
-
-**내용:** DHT 온습도·AM 온습도·CO₂·VOC·PM2.5
-
-**단계:** 처리
-
-**내용:** Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록
-
-**단계:** 출력
-
-**내용:** air_log.csv: PC 시각과 7개 센서값, 총 8열
-
+| 단계 | 내용 |
+| --- | --- |
+| 입력 | DHT 온습도·AM 온습도·CO₂·VOC·PM2.5 |
+| 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
+| 출력 | air_log.csv: PC 시각과 7개 센서값, 총 8열 |
 
 입력·처리·출력은 위의 같은 자료 흐름을 다른 단계에서 읽는 기준입니다. 처리 조건과 출력의 의미를 함께 확인합니다.
 
@@ -290,54 +238,16 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 CSV는 PC 수신 시각과 센서 값 7개로 구성됩니다. `timestamp`는 PC의 로컬 시각이며 시간대 정보는 포함하지 않습니다.
 
-**열:** `timestamp`
-
-**의미:** PC에서 데이터를 수신한 시각
-
-**단위:** `YYYY-MM-DD HH:MM:SS`
-
-**열:** `dht_temp_C`
-
-**의미:** DHT 온도
-
-**단위:** °C
-
-**열:** `dht_humi_pct`
-
-**의미:** DHT 상대습도
-
-**단위:** %
-
-**열:** `am_temp_C`
-
-**의미:** AM1008W-K 온도
-
-**단위:** °C
-
-**열:** `am_humi_pct`
-
-**의미:** AM1008W-K 상대습도
-
-**단위:** %
-
-**열:** `co2_ppm`
-
-**의미:** CO₂
-
-**단위:** ppm
-
-**열:** `voc_level`
-
-**의미:** VOC 단계
-
-**단위:** 센서 단계 값
-
-**열:** `pm25_ugm3`
-
-**의미:** PM2.5
-
-**단위:** µg/m³
-
+| 열 | 의미 | 단위 |
+| --- | --- | --- |
+| `timestamp` | PC에서 데이터를 수신한 시각 | `YYYY-MM-DD HH:MM:SS` |
+| `dht_temp_C` | DHT 온도 | °C |
+| `dht_humi_pct` | DHT 상대습도 | % |
+| `am_temp_C` | AM1008W-K 온도 | °C |
+| `am_humi_pct` | AM1008W-K 상대습도 | % |
+| `co2_ppm` | CO₂ | ppm |
+| `voc_level` | VOC 단계 | 센서 단계 값 |
+| `pm25_ugm3` | PM2.5 | µg/m³ |
 
 수집기는 헤더, 열 개수가 잘못된 행, 숫자 또는 빈칸 이외의 값이 있는 행을 건너뜁니다. 일부 센서가 실패한 행은 정상 항목을 보존합니다.
 
@@ -389,10 +299,10 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 #### LEVEL 2 · [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)
 
-| 내용 |
-| --- |
-| **정의:** [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22)<br>**소스에 적힌 역할:** 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
-| **정의:** [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34)<br>**소스에 적힌 역할:** 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
+| 정의 | 소스에 적힌 역할 |
+| --- | --- |
+| [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22) | 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
+| [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34) | 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
 
 **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L6)
 
@@ -417,18 +327,11 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 출력 CSV는 현재 작업 폴더에 누적됩니다. 새 측정은 OUTPUT_FILE을 다른 이름으로 지정해 기존 측정 원본과 분리합니다. timestamp는 PC 수신 시각이며 센서 자체 시각이나 중단 없는 연속 측정 보증이 아닙니다.
 
-**상황:** 포트를 열지 못함
-
-**확인할 내용:** PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다.
-
-**상황:** LCD 표시 오류
-
-**확인할 내용:** 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다.
-
-**상황:** 측정 누락
-
-**확인할 내용:** 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다.
-
+| 상황 | 확인할 내용 |
+| --- | --- |
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
 
 [자료 폴더](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) · [직전 비교·자료 범위](step-2.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
 
@@ -470,54 +373,16 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 CSV는 PC 수신 시각과 센서 값 7개로 구성됩니다. `timestamp`는 PC의 로컬 시각이며 시간대 정보는 포함하지 않습니다.
 
-**열:** `timestamp`
-
-**의미:** PC에서 데이터를 수신한 시각
-
-**단위:** `YYYY-MM-DD HH:MM:SS`
-
-**열:** `dht_temp_C`
-
-**의미:** DHT 온도
-
-**단위:** °C
-
-**열:** `dht_humi_pct`
-
-**의미:** DHT 상대습도
-
-**단위:** %
-
-**열:** `am_temp_C`
-
-**의미:** AM1008W-K 온도
-
-**단위:** °C
-
-**열:** `am_humi_pct`
-
-**의미:** AM1008W-K 상대습도
-
-**단위:** %
-
-**열:** `co2_ppm`
-
-**의미:** CO₂
-
-**단위:** ppm
-
-**열:** `voc_level`
-
-**의미:** VOC 단계
-
-**단위:** 센서 단계 값
-
-**열:** `pm25_ugm3`
-
-**의미:** PM2.5
-
-**단위:** µg/m³
-
+| 열 | 의미 | 단위 |
+| --- | --- | --- |
+| `timestamp` | PC에서 데이터를 수신한 시각 | `YYYY-MM-DD HH:MM:SS` |
+| `dht_temp_C` | DHT 온도 | °C |
+| `dht_humi_pct` | DHT 상대습도 | % |
+| `am_temp_C` | AM1008W-K 온도 | °C |
+| `am_humi_pct` | AM1008W-K 상대습도 | % |
+| `co2_ppm` | CO₂ | ppm |
+| `voc_level` | VOC 단계 | 센서 단계 값 |
+| `pm25_ugm3` | PM2.5 | µg/m³ |
 
 수집기는 헤더, 열 개수가 잘못된 행, 숫자 또는 빈칸 이외의 값이 있는 행을 건너뜁니다. 일부 센서가 실패한 행은 정상 항목을 보존합니다.
 
@@ -569,10 +434,10 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 #### LEVEL 3 · [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)
 
-| 내용 |
-| --- |
-| **정의:** [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22)<br>**소스에 적힌 역할:** 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
-| **정의:** [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34)<br>**소스에 적힌 역할:** 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
+| 정의 | 소스에 적힌 역할 |
+| --- | --- |
+| [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22) | 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
+| [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34) | 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
 
 **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L6)
 
@@ -600,35 +465,21 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 3. 수집기의 PORT를 실제 장치로 지정하고 OUTPUT_FILE을 새 기록 이름으로 정합니다.
 4. Python 수집기를 실행해 헤더·열 수·시각·센서값을 확인합니다.
 
-**단계:** 입력
-
-**내용:** DHT 온습도·AM 온습도·CO₂·VOC·PM2.5
-
-**단계:** 처리
-
-**내용:** Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록
-
-**단계:** 출력
-
-**내용:** air_log.csv: PC 시각과 7개 센서값, 총 8열
-
+| 단계 | 내용 |
+| --- | --- |
+| 입력 | DHT 온습도·AM 온습도·CO₂·VOC·PM2.5 |
+| 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
+| 출력 | air_log.csv: PC 시각과 7개 센서값, 총 8열 |
 
 ### LEVEL 3 · 결과와 실패를 확인하기
 
 출력 CSV는 현재 작업 폴더에 누적됩니다. 새 측정은 OUTPUT_FILE을 다른 이름으로 지정해 기존 측정 원본과 분리합니다. timestamp는 PC 수신 시각이며 센서 자체 시각이나 중단 없는 연속 측정 보증이 아닙니다.
 
-**상황:** 포트를 열지 못함
-
-**확인할 내용:** PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다.
-
-**상황:** LCD 표시 오류
-
-**확인할 내용:** 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다.
-
-**상황:** 측정 누락
-
-**확인할 내용:** 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다.
-
+| 상황 | 확인할 내용 |
+| --- | --- |
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
 
 ### LEVEL 3 · 실행 전 대조할 차수 조건
 
@@ -659,23 +510,16 @@ parse_line은 센서값 7필드가 숫자 또는 빈칸인지 확인합니다. �
 
 ### LEVEL 4 · 이 차수 구현의 실제 근거
 
-| 내용 |
-| --- |
-| **파일:** [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)<br>**원문에 정의된 역할·구성:** 정의: `is_number_or_blank`, `parse_line`, `main` |
-| **파일:** [아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino)<br>**원문에 정의된 역할·구성:** 소스 본문과 설정을 함께 읽는 구성요소 |
+| 파일 | 원문에 정의된 역할·구성 |
+| --- | --- |
+| [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py) | 정의: `is_number_or_blank`, `parse_line`, `main` |
+| [아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino) | 소스 본문과 설정을 함께 읽는 구성요소 |
 
-**단계:** 입력
-
-**내용:** DHT 온습도·AM 온습도·CO₂·VOC·PM2.5
-
-**단계:** 처리
-
-**내용:** Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록
-
-**단계:** 출력
-
-**내용:** air_log.csv: PC 시각과 7개 센서값, 총 8열
-
+| 단계 | 내용 |
+| --- | --- |
+| 입력 | DHT 온습도·AM 온습도·CO₂·VOC·PM2.5 |
+| 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
+| 출력 | air_log.csv: PC 시각과 7개 센서값, 총 8열 |
 
 ### LEVEL 4 · 조건·변경·결과를 함께 검토하기
 
@@ -710,54 +554,16 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 CSV는 PC 수신 시각과 센서 값 7개로 구성됩니다. `timestamp`는 PC의 로컬 시각이며 시간대 정보는 포함하지 않습니다.
 
-**열:** `timestamp`
-
-**의미:** PC에서 데이터를 수신한 시각
-
-**단위:** `YYYY-MM-DD HH:MM:SS`
-
-**열:** `dht_temp_C`
-
-**의미:** DHT 온도
-
-**단위:** °C
-
-**열:** `dht_humi_pct`
-
-**의미:** DHT 상대습도
-
-**단위:** %
-
-**열:** `am_temp_C`
-
-**의미:** AM1008W-K 온도
-
-**단위:** °C
-
-**열:** `am_humi_pct`
-
-**의미:** AM1008W-K 상대습도
-
-**단위:** %
-
-**열:** `co2_ppm`
-
-**의미:** CO₂
-
-**단위:** ppm
-
-**열:** `voc_level`
-
-**의미:** VOC 단계
-
-**단위:** 센서 단계 값
-
-**열:** `pm25_ugm3`
-
-**의미:** PM2.5
-
-**단위:** µg/m³
-
+| 열 | 의미 | 단위 |
+| --- | --- | --- |
+| `timestamp` | PC에서 데이터를 수신한 시각 | `YYYY-MM-DD HH:MM:SS` |
+| `dht_temp_C` | DHT 온도 | °C |
+| `dht_humi_pct` | DHT 상대습도 | % |
+| `am_temp_C` | AM1008W-K 온도 | °C |
+| `am_humi_pct` | AM1008W-K 상대습도 | % |
+| `co2_ppm` | CO₂ | ppm |
+| `voc_level` | VOC 단계 | 센서 단계 값 |
+| `pm25_ugm3` | PM2.5 | µg/m³ |
 
 수집기는 헤더, 열 개수가 잘못된 행, 숫자 또는 빈칸 이외의 값이 있는 행을 건너뜁니다. 일부 센서가 실패한 행은 정상 항목을 보존합니다.
 
@@ -809,10 +615,10 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 #### LEVEL 4 · [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)
 
-| 내용 |
-| --- |
-| **정의:** [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22)<br>**소스에 적힌 역할:** 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
-| **정의:** [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34)<br>**소스에 적힌 역할:** 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
+| 정의 | 소스에 적힌 역할 |
+| --- | --- |
+| [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22) | 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
+| [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34) | 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
 
 **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L6)
 
@@ -835,18 +641,11 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 출력 CSV는 현재 작업 폴더에 누적됩니다. 새 측정은 OUTPUT_FILE을 다른 이름으로 지정해 기존 측정 원본과 분리합니다. timestamp는 PC 수신 시각이며 센서 자체 시각이나 중단 없는 연속 측정 보증이 아닙니다.
 
-**상황:** 포트를 열지 못함
-
-**확인할 내용:** PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다.
-
-**상황:** LCD 표시 오류
-
-**확인할 내용:** 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다.
-
-**상황:** 측정 누락
-
-**확인할 내용:** 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다.
-
+| 상황 | 확인할 내용 |
+| --- | --- |
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
 
 ### LEVEL 4 · 재현과 전체 비교
 
@@ -898,18 +697,11 @@ DHT와 AM1008W-K를 함께 읽고 LCD의 DHT·AM 온습도·공기질 화면을 
 <a name="-입력처리출력"></a>
 ## 입력·처리·출력
 
-**단계:** 입력
-
-**내용:** DHT 온습도·AM 온습도·CO₂·VOC·PM2.5
-
-**단계:** 처리
-
-**내용:** Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록
-
-**단계:** 출력
-
-**내용:** air_log.csv: PC 시각과 7개 센서값, 총 8열
-
+| 단계 | 내용 |
+| --- | --- |
+| 입력 | DHT 온습도·AM 온습도·CO₂·VOC·PM2.5 |
+| 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
+| 출력 | air_log.csv: PC 시각과 7개 센서값, 총 8열 |
 
 <a name="usage"></a>
 
@@ -926,21 +718,21 @@ DHT와 AM1008W-K를 함께 읽고 LCD의 DHT·AM 온습도·공기질 화면을 
 <a name="-실제-자료-구성"></a>
 ## 실제 자료 구성
 
-| 내용 |
-| --- |
-| **경로:** [CSV 파이썬 코드/](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C)<br>**자료 종류:** 하위 자료 폴더 |
-| **경로:** [아두이노 코드/](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C)<br>**자료 종류:** 하위 자료 폴더 |
-| **경로:** [.gitignore](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/.gitignore)<br>**자료 종류:** 파일 |
-| **경로:** [README.md](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/README.md)<br>**자료 종류:** MD 파일 |
-| **경로:** [requirements.txt](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/requirements.txt)<br>**자료 종류:** TXT 파일 |
+| 경로 | 자료 종류 |
+| --- | --- |
+| [CSV 파이썬 코드/](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C) | 하위 자료 폴더 |
+| [아두이노 코드/](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C) | 하위 자료 폴더 |
+| [.gitignore](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/.gitignore) | 파일 |
+| [README.md](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/README.md) | MD 파일 |
+| [requirements.txt](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/requirements.txt) | TXT 파일 |
 
 <a name="-주요-모듈과-코드-읽기"></a>
 ## 주요 모듈과 코드 읽기
 
-| 내용 |
-| --- |
-| **파일:** [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)<br>**원문에 정의된 역할·구성:** 정의: `is_number_or_blank`, `parse_line`, `main` |
-| **파일:** [아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino)<br>**원문에 정의된 역할·구성:** 소스 본문과 설정을 함께 읽는 구성요소 |
+| 파일 | 원문에 정의된 역할·구성 |
+| --- | --- |
+| [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py) | 정의: `is_number_or_blank`, `parse_line`, `main` |
+| [아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino) | 소스 본문과 설정을 함께 읽는 구성요소 |
 
 <a name="setup"></a>
 
@@ -981,54 +773,16 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 CSV는 PC 수신 시각과 센서 값 7개로 구성됩니다. `timestamp`는 PC의 로컬 시각이며 시간대 정보는 포함하지 않습니다.
 
-**열:** `timestamp`
-
-**의미:** PC에서 데이터를 수신한 시각
-
-**단위:** `YYYY-MM-DD HH:MM:SS`
-
-**열:** `dht_temp_C`
-
-**의미:** DHT 온도
-
-**단위:** °C
-
-**열:** `dht_humi_pct`
-
-**의미:** DHT 상대습도
-
-**단위:** %
-
-**열:** `am_temp_C`
-
-**의미:** AM1008W-K 온도
-
-**단위:** °C
-
-**열:** `am_humi_pct`
-
-**의미:** AM1008W-K 상대습도
-
-**단위:** %
-
-**열:** `co2_ppm`
-
-**의미:** CO₂
-
-**단위:** ppm
-
-**열:** `voc_level`
-
-**의미:** VOC 단계
-
-**단위:** 센서 단계 값
-
-**열:** `pm25_ugm3`
-
-**의미:** PM2.5
-
-**단위:** µg/m³
-
+| 열 | 의미 | 단위 |
+| --- | --- | --- |
+| `timestamp` | PC에서 데이터를 수신한 시각 | `YYYY-MM-DD HH:MM:SS` |
+| `dht_temp_C` | DHT 온도 | °C |
+| `dht_humi_pct` | DHT 상대습도 | % |
+| `am_temp_C` | AM1008W-K 온도 | °C |
+| `am_humi_pct` | AM1008W-K 상대습도 | % |
+| `co2_ppm` | CO₂ | ppm |
+| `voc_level` | VOC 단계 | 센서 단계 값 |
+| `pm25_ugm3` | PM2.5 | µg/m³ |
 
 수집기는 헤더, 열 개수가 잘못된 행, 숫자 또는 빈칸 이외의 값이 있는 행을 건너뜁니다. 일부 센서가 실패한 행은 정상 항목을 보존합니다.
 
@@ -1081,10 +835,10 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 ### [CSV 파이썬 코드/pc_csv_logger.py](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py)
 
-| 내용 |
-| --- |
-| **정의:** [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22)<br>**소스에 적힌 역할:** 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
-| **정의:** [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34)<br>**소스에 적힌 역할:** 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
+| 정의 | 소스에 적힌 역할 |
+| --- | --- |
+| [`is_number_or_blank`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L22) | 빈칸(센서 읽기 실패)이거나 숫자면 True. 헤더 줄 같은 문자열은 False. |
+| [`parse_line`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L34) | 아두이노 한 줄 -&gt; 값 리스트. 형식이 맞지 않으면(헤더 줄, 깨진 줄 등) None. |
 
 **설정·옵션:** [`PORT`](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py#L6)
 
@@ -1115,18 +869,11 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 <a name="️-제약과-문제-해결"></a>
 ## 제약과 문제 해결
 
-**상황:** 포트를 열지 못함
-
-**확인할 내용:** PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다.
-
-**상황:** LCD 표시 오류
-
-**확인할 내용:** 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다.
-
-**상황:** 측정 누락
-
-**확인할 내용:** 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다.
-
+| 상황 | 확인할 내용 |
+| --- | --- |
+| 포트를 열지 못함 | PORT·USB 연결·다른 프로그램의 포트 점유를 확인합니다. |
+| LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
+| 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
 
 <a name="changes"></a>
 
@@ -1144,42 +891,17 @@ PC의 `parse_line`은 쉼표7필드, 각 필드 숫자 또는 빈칸, 적어도 
 
 [전체 텍스트 차이](step-2.patch) · [파일별 크기·SHA-256](step-2-files.json)
 
-**구분:** 추가
-
-**파일:** `.gitignore`
-
-**구분:** 추가
-
-**파일:** `CSV 파이썬 코드/air_log.csv`
-
-**구분:** 추가
-
-**파일:** `CSV 파이썬 코드/pc_csv_logger.py`
-
-**구분:** 추가
-
-**파일:** `README.md`
-
-**구분:** 추가
-
-**파일:** `requirements.txt`
-
-**구분:** 추가
-
-**파일:** `아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino`
-
-**구분:** 이전에만 존재
-
-**파일:** `dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino`
-
-**구분:** 이전에만 존재
-
-**파일:** `dht_log.csv`
-
-**구분:** 이전에만 존재
-
-**파일:** `pc_csv_logger.py`
-
+| 구분 | 파일 |
+| --- | --- |
+| 추가 | `.gitignore` |
+| 추가 | `CSV 파이썬 코드/air_log.csv` |
+| 추가 | `CSV 파이썬 코드/pc_csv_logger.py` |
+| 추가 | `README.md` |
+| 추가 | `requirements.txt` |
+| 추가 | `아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino` |
+| 이전에만 존재 | `dht_lcd_rgb_csv/dht_lcd_rgb_csv.ino` |
+| 이전에만 존재 | `dht_log.csv` |
+| 이전에만 존재 | `pc_csv_logger.py` |
 
 </details>
 
