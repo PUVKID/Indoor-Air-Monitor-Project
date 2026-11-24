@@ -16,7 +16,7 @@ DHT와 AM1008W-K를 함께 읽고 LCD의 DHT·AM 온습도·공기질 화면을 
 프로젝트 전체의 설명은 [LEVEL 1 - Beginner](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md)부터 [LEVEL 5 - Expert](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)까지 같은 범위로 연결됩니다.
 
 <details open>
-<summary><strong>LEVEL 1 · Beginner</strong> — 목적과 동작부터</summary>
+<summary>LEVEL 1 · Beginner — 목적과 동작부터</summary>
 
 <a id="reading-level-1"></a>
 ## LEVEL 1 - Beginner
@@ -78,7 +78,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 - [아두이노 스케치](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino): 센서 읽기, LCD 표시, LED 등급 판정, CSV 전송.
 - [Python 수집기](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py): 데이터 형식 검사 및 타임스탬프를 포함한 CSV 저장.
-- `air_log.csv`: 수집기를 실행하면 작업 위치에 생성되는 기록 파일입니다. **당시 안내에는 공개 저장소에 포함하지 않았다고 적혀 있지만, 현재 보존된 최종 폴더에는 [CSV 원본](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/air_log.csv)이 제공됩니다.** 기존 기록 파일의 제공과 새 환경에서의 측정은 별개이며, 새 기록은 `OUTPUT_FILE`을 다른 이름으로 지정해 분리합니다.
+- `air_log.csv`: 수집기를 실행하면 작업 위치에 생성되는 기록 파일입니다. 당시 안내에는 공개 저장소에 포함하지 않았다고 적혀 있지만, 현재 보존된 최종 폴더에는 [CSV 원본](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/air_log.csv)이 제공됩니다. 기존 기록 파일의 제공과 새 환경에서의 측정은 별개이며, 새 기록은 `OUTPUT_FILE`을 다른 이름으로 지정해 분리합니다.
 
 #### LEVEL 1 · 데이터 구성
 
@@ -196,7 +196,7 @@ Ctrl +C 때 안내를 남기고 finally에서 포트를 닫습니다.
 </details>
 
 <details>
-<summary><strong>LEVEL 2 · Explorer</strong> — 구성과 연결 원리</summary>
+<summary>LEVEL 2 · Explorer — 구성과 연결 원리</summary>
 
 <a id="reading-level-2"></a>
 ## LEVEL 2 - Explorer
@@ -255,7 +255,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 - [아두이노 스케치](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino): 센서 읽기, LCD 표시, LED 등급 판정, CSV 전송.
 - [Python 수집기](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py): 데이터 형식 검사 및 타임스탬프를 포함한 CSV 저장.
-- `air_log.csv`: 수집기를 실행하면 작업 위치에 생성되는 기록 파일입니다. **당시 안내에는 공개 저장소에 포함하지 않았다고 적혀 있지만, 현재 보존된 최종 폴더에는 [CSV 원본](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/air_log.csv)이 제공됩니다.** 기존 기록 파일의 제공과 새 환경에서의 측정은 별개이며, 새 기록은 `OUTPUT_FILE`을 다른 이름으로 지정해 분리합니다.
+- `air_log.csv`: 수집기를 실행하면 작업 위치에 생성되는 기록 파일입니다. 당시 안내에는 공개 저장소에 포함하지 않았다고 적혀 있지만, 현재 보존된 최종 폴더에는 [CSV 원본](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/air_log.csv)이 제공됩니다. 기존 기록 파일의 제공과 새 환경에서의 측정은 별개이며, 새 기록은 `OUTPUT_FILE`을 다른 이름으로 지정해 분리합니다.
 
 #### LEVEL 2 · 데이터 구성
 
@@ -368,7 +368,7 @@ Ctrl +C 때 안내를 남기고 finally에서 포트를 닫습니다.
 </details>
 
 <details>
-<summary><strong>LEVEL 3 · Practitioner</strong> — 준비·실행·결과 확인</summary>
+<summary>LEVEL 3 · Practitioner — 준비·실행·결과 확인</summary>
 
 <a id="reading-level-3"></a>
 ## LEVEL 3 - Practitioner
@@ -402,7 +402,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 - [아두이노 스케치](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino): 센서 읽기, LCD 표시, LED 등급 판정, CSV 전송.
 - [Python 수집기](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py): 데이터 형식 검사 및 타임스탬프를 포함한 CSV 저장.
-- `air_log.csv`: 수집기를 실행하면 작업 위치에 생성되는 기록 파일입니다. **당시 안내에는 공개 저장소에 포함하지 않았다고 적혀 있지만, 현재 보존된 최종 폴더에는 [CSV 원본](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/air_log.csv)이 제공됩니다.** 기존 기록 파일의 제공과 새 환경에서의 측정은 별개이며, 새 기록은 `OUTPUT_FILE`을 다른 이름으로 지정해 분리합니다.
+- `air_log.csv`: 수집기를 실행하면 작업 위치에 생성되는 기록 파일입니다. 당시 안내에는 공개 저장소에 포함하지 않았다고 적혀 있지만, 현재 보존된 최종 폴더에는 [CSV 원본](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/air_log.csv)이 제공됩니다. 기존 기록 파일의 제공과 새 환경에서의 측정은 별개이며, 새 기록은 `OUTPUT_FILE`을 다른 이름으로 지정해 분리합니다.
 
 #### LEVEL 3 · 데이터 구성
 
@@ -538,7 +538,7 @@ parse_line은 센서 값 7 필드가 숫자 또는 빈 칸인지 확인합니다
 </details>
 
 <details>
-<summary><strong>LEVEL 4 · Advanced</strong> — 구현·설계·실패 처리</summary>
+<summary>LEVEL 4 · Advanced — 구현·설계·실패 처리</summary>
 
 <a id="reading-level-4"></a>
 ## LEVEL 4 - Advanced
@@ -595,7 +595,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 - [아두이노 스케치](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino): 센서 읽기, LCD 표시, LED 등급 판정, CSV 전송.
 - [Python 수집기](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py): 데이터 형식 검사 및 타임스탬프를 포함한 CSV 저장.
-- `air_log.csv`: 수집기를 실행하면 작업 위치에 생성되는 기록 파일입니다. **당시 안내에는 공개 저장소에 포함하지 않았다고 적혀 있지만, 현재 보존된 최종 폴더에는 [CSV 원본](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/air_log.csv)이 제공됩니다.** 기존 기록 파일의 제공과 새 환경에서의 측정은 별개이며, 새 기록은 `OUTPUT_FILE`을 다른 이름으로 지정해 분리합니다.
+- `air_log.csv`: 수집기를 실행하면 작업 위치에 생성되는 기록 파일입니다. 당시 안내에는 공개 저장소에 포함하지 않았다고 적혀 있지만, 현재 보존된 최종 폴더에는 [CSV 원본](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/air_log.csv)이 제공됩니다. 기존 기록 파일의 제공과 새 환경에서의 측정은 별개이며, 새 기록은 `OUTPUT_FILE`을 다른 이름으로 지정해 분리합니다.
 
 #### LEVEL 4 · 데이터 구성
 
@@ -714,7 +714,7 @@ Ctrl +C 때 안내를 남기고 finally에서 포트를 닫습니다.
 </details>
 
 <details>
-<summary><strong>LEVEL 5 · Expert</strong> — 근거·프로토콜·한계 검토</summary>
+<summary>LEVEL 5 · Expert — 근거·프로토콜·한계 검토</summary>
 
 <a id="reading-level-5"></a>
 ## LEVEL 5 - Expert

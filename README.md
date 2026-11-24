@@ -9,11 +9,11 @@ Arduino 기반 실내 공기질 측정과 PC 기록 프로젝트입니다.
 
 | 수준 | 이 안내에서 읽을 내용 |
 | --- | --- |
-| [**LEVEL 1 - Beginner**](docs/읽기안내/레벨1.md) | 낯선 용어를 풀어 쓰며 실제 동작·예시·오해하기 쉬운 범위를 읽습니다. |
-| [**LEVEL 2 - Explorer**](docs/읽기안내/레벨2.md) | 입력·처리·출력과 기능 사이의 연결, 차수 변화를 따라갑니다. |
-| [**LEVEL 3 - Practitioner**](docs/읽기안내/레벨3.md) | 준비 조건·사용 순서·설정·결과 및 실패 확인 방법을 읽습니다. |
-| [**LEVEL 4 - Advanced**](docs/읽기안내/레벨4.md) | 모듈 설계·상태 전이·검증 경계와 구현 선택을 검토합니다. |
-| [**LEVEL 5 - Expert**](docs/읽기안내/레벨5.md) | 실제 코드·프로토콜·설정값·전체 비교와 측정 근거를 대조합니다. |
+| [LEVEL 1 - Beginner](docs/읽기안내/레벨1.md) | 낯선 용어를 풀어 쓰며 실제 동작·예시·오해하기 쉬운 범위를 읽습니다. |
+| [LEVEL 2 - Explorer](docs/읽기안내/레벨2.md) | 입력·처리·출력과 기능 사이의 연결, 차수 변화를 따라갑니다. |
+| [LEVEL 3 - Practitioner](docs/읽기안내/레벨3.md) | 준비 조건·사용 순서·설정·결과 및 실패 확인 방법을 읽습니다. |
+| [LEVEL 4 - Advanced](docs/읽기안내/레벨4.md) | 모듈 설계·상태 전이·검증 경계와 구현 선택을 검토합니다. |
+| [LEVEL 5 - Expert](docs/읽기안내/레벨5.md) | 실제 코드·프로토콜·설정값·전체 비교와 측정 근거를 대조합니다. |
 
 모든 안내는 같은 프로젝트와 전체 차수를 다룹니다. 기존 상세 본문은 아래에 계속 보존합니다.
 <!-- project-levels:end -->
@@ -68,7 +68,7 @@ PC 시각은 센서 자체 시각이 아니며, 저장된 예시 CSV를 새 공�
 
 외부 DMF 체크아웃을 사용하므로 해당 소스는 이 저장소에 포함하지 않습니다.
 
-**센서 장치의 새 측정이나 공식 DMF 배포를 뜻하지 않습니다.** 적용 보고서는 [HTML](DMF%20적용/1차/실행결과/DMF_적용보고서.html) · [PDF](DMF%20적용/1차/실행결과/DMF_적용보고서.pdf) · [Markdown](DMF%20적용/1차/실행결과/DMF_적용보고서.md)으로 읽을 수 있습니다. [최종 제출 묶음](DMF%20적용/최종/ICT%20안전%20PBL_DMF%20적용_제출자료.zip)도 제공합니다.
+센서 장치의 새 측정이나 공식 DMF 배포를 뜻하지 않습니다. 적용 보고서는 [HTML](DMF%20적용/1차/실행결과/DMF_적용보고서.html) · [PDF](DMF%20적용/1차/실행결과/DMF_적용보고서.pdf) · [Markdown](DMF%20적용/1차/실행결과/DMF_적용보고서.md)으로 읽을 수 있습니다. [최종 제출 묶음](DMF%20적용/최종/ICT%20안전%20PBL_DMF%20적용_제출자료.zip)도 제공합니다.
 
 | 입력 | 처리 | 확인 자료 |
 | --- | --- | --- |
@@ -81,9 +81,9 @@ PC 시각은 센서 자체 시각이 아니며, 저장된 예시 CSV를 새 공�
 
 | 차수·자료 | 자료 |
 | --- | --- |
-| 1차 | **자료 폴더·원본** [자료 폴더](%EC%BD%94%EB%93%9C/1%EC%B0%A8)<br>**상세 설명** [상세 설명](docs/revisions/step-1.md)<br>**직전 비교·범위** [전체 비교·범위](docs/revisions/step-1.patch) |
-| 최종 | **자료 폴더·원본** [자료 폴더](%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85)<br>**상세 설명** [상세 설명](docs/revisions/step-2.md)<br>**직전 비교·범위** [전체 비교·범위](docs/revisions/step-2.patch) |
-| DMF 적용 1차 | **자료 폴더** [자료 폴더](DMF%20적용/1차) · **상세** [설명](docs/revisions/dmf-1.md) · **비교** [전체 비교](docs/revisions/dmf-1.patch) |
+| 1차 | 자료 폴더·원본 [자료 폴더](%EC%BD%94%EB%93%9C/1%EC%B0%A8)<br>상세 설명 [상세 설명](docs/revisions/step-1.md)<br>직전 비교·범위 [전체 비교·범위](docs/revisions/step-1.patch) |
+| 최종 | 자료 폴더·원본 [자료 폴더](%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85)<br>상세 설명 [상세 설명](docs/revisions/step-2.md)<br>직전 비교·범위 [전체 비교·범위](docs/revisions/step-2.patch) |
+| DMF 적용 1차 | 자료 폴더 [자료 폴더](DMF%20적용/1차) · **상세** [설명](docs/revisions/dmf-1.md) · 비교 [전체 비교](docs/revisions/dmf-1.patch) |
 | DMF 적용 최종 | 1차 납품 묶음·[자료 폴더](DMF%20적용/최종) · [상세 설명](docs/revisions/dmf-1.md) · [전체 비교](docs/revisions/dmf-1.patch) |
 
 
@@ -137,7 +137,7 @@ PC에서는 Python 프로그램이 시리얼 데이터를 받아 수신 시각�
 <a name="-프로젝트-연계와-담당-범위"></a>
 ### 프로젝트 연계와 담당 범위
 
-이 코드는 [ICT-IndoorAD 실내 환경 프로젝트](https://github.com/ICT-IndoorAD)에 참여하면서 **곽윤석(Kwak Yunsuk)이 직접 작성한 담당 부분**을 정리한 것입니다. 아두이노 센서 측정·LCD·RGB LED 제어와 Python 시리얼·CSV 기록 코드를 차수별로 담았습니다.
+이 코드는 [ICT-IndoorAD 실내 환경 프로젝트](https://github.com/ICT-IndoorAD)에 참여하면서 곽윤석(Kwak Yunsuk)이 직접 작성한 담당 부분을 정리한 것입니다. 아두이노 센서 측정·LCD·RGB LED 제어와 Python 시리얼·CSV 기록 코드를 차수별로 담았습니다.
 
 - [ICT-IndoorAD 프로젝트 전체](https://github.com/ICT-IndoorAD): 함께 진행한 프로젝트와 참여자별 저장소를 확인할 수 있습니다.
 - [ICT-IndoorAD 개인 담당 저장소](https://github.com/ICT-IndoorAD/Yunsuk-Kwak): 프로젝트 안에서 작성한 개인 담당 코드의 연결 경로입니다.

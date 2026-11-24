@@ -3,7 +3,7 @@
 기존 실내 공기질 프로젝트에 DMF 데이터 관리 개념을 적용한 별도 차수입니다. 기존 1차와 최종 자료를 보존합니다. DMF 적용 최종은 이 1차의 납품 묶음이며 새 개발 차수나 별도 실험이 아닙니다.
 
 <details open>
-<summary><strong>LEVEL 1 · Beginner</strong> — 목적과 동작부터</summary>
+<summary>LEVEL 1 · Beginner — 목적과 동작부터</summary>
 
 <a id="reading-level-1"></a>
 ## LEVEL 1 - Beginner
@@ -42,7 +42,7 @@ CSV에서 값이 비어 있으면 0으로 바꾸지 않으며, 시간 간격이 
 </details>
 
 <details>
-<summary><strong>LEVEL 2 · Explorer</strong> — 구성과 연결 원리</summary>
+<summary>LEVEL 2 · Explorer — 구성과 연결 원리</summary>
 
 <a id="reading-level-2"></a>
 ## LEVEL 2 - Explorer
@@ -72,7 +72,7 @@ CSV에서 값이 비어 있으면 0으로 바꾸지 않으며, 시간 간격이 
 </details>
 
 <details>
-<summary><strong>LEVEL 3 · Practitioner</strong> — 준비·실행·결과 확인</summary>
+<summary>LEVEL 3 · Practitioner — 준비·실행·결과 확인</summary>
 
 <a id="reading-level-3"></a>
 ## LEVEL 3 - Practitioner
@@ -121,7 +121,7 @@ AM 다섯 값은 각 691,887개이며 결측은 각 295개입니다.
 </details>
 
 <details>
-<summary><strong>LEVEL 4 · Advanced</strong> — 구현·설계·실패 처리</summary>
+<summary>LEVEL 4 · Advanced — 구현·설계·실패 처리</summary>
 
 <a id="reading-level-4"></a>
 ## LEVEL 4 - Advanced
@@ -151,7 +151,7 @@ AM 다섯 값은 각 691,887개이며 결측은 각 295개입니다.
 </details>
 
 <details>
-<summary><strong>LEVEL 5 · Expert</strong> — 근거·프로토콜·한계 검토</summary>
+<summary>LEVEL 5 · Expert — 근거·프로토콜·한계 검토</summary>
 
 <a id="reading-level-5"></a>
 ## LEVEL 5 - Expert
