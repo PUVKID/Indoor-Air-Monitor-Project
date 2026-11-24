@@ -17,7 +17,18 @@
 
 </div>
 <!-- user-levels:start -->
-**수준별 전체 안내:** [LEVEL 1 - Beginner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) · [LEVEL 2 - Explorer](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) · [LEVEL 3 - Practitioner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) · [LEVEL 4 - Advanced](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) · [LEVEL 5 - Expert](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)
+<details>
+<summary><strong>읽기 수준 선택</strong></summary>
+
+| 레벨 | 읽는 목적 |
+| --- | --- |
+| [LEVEL 1 - Beginner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) | 목적과 입력·출력을 쉬운 말로 이해하기 |
+| [LEVEL 2 - Explorer](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) | 주요 기능과 전체 처리 흐름 살펴보기 |
+| [LEVEL 3 - Practitioner](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) | 설정·실행 순서와 결과 확인하기 |
+| [LEVEL 4 - Advanced](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) | 구현 선택과 조건·한계 비교하기 |
+| [LEVEL 5 - Expert](../../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md) | 세부 근거와 재현 조건 검토하기 |
+
+</details>
 <!-- user-levels:end -->
 
 
@@ -26,7 +37,8 @@
 <a name="-프로젝트-소개"></a>
 ## 프로젝트 소개
 
-DHT11과 AM1008W-K의 측정 값을 아두이노에서 읽어 실내 환경을 확인하는 프로젝트입니다. 16×2 LCD 는 세 화면을 순환하며 값을 표시하고, RGB LED는 읽기에 성공한 항목 중 가장 높은 위험 등급을 색으로 보여 줍니다.
+DHT11과 AM1008W-K의 측정 값을 아두이노에서 읽어 실내 환경을 확인하는 프로젝트입니다.  
+16×2 LCD 는 세 화면을 순환하며 값을 표시하고, RGB LED는 읽기에 성공한 항목 중 가장 높은 위험 등급을 색으로 보여 줍니다.
 
 PC에서는 Python 프로그램이 시 리얼 데이터를 받아 수신 시각과 함께 CSV에 저장합니다.
 
@@ -84,7 +96,10 @@ flowchart LR
 | RGB LED | R → D9 / G → D10 / B → D11 |
 | PC 연결 | USB 시리얼, `9600 baud` |
 
-AM1008W-K와 LCD는 같은 I²C 버스를 공유합니다. 전원 전압은 각 부품 사양에 맞추고 GND를 공통으로 연결하세요. LED에는 적절한 전류 제한 저항을 사용하세요. 현재 LED 제어는 HIGH에서 켜지는 방식이므로 공통 애노드 LED는 제어 논리를 반전해야 합니다.
+AM1008W-K와 LCD는 같은 I²C 버스를 공유합니다.  
+전원 전압은 각 부품 사양에 맞추고 GND를 공통으로 연결하세요.  
+LED에는 적절한 전류 제한 저항을 사용하세요.  
+현재 LED 제어는 HIGH에서 켜지는 방식이므로 공통 애노드 LED는 제어 논리를 반전해야 합니다.
 
 <a name="-빠른-시작"></a>
 ## 빠른 시작
@@ -92,11 +107,13 @@ AM1008W-K와 LCD는 같은 I²C 버스를 공유합니다. 전원 전압은 각 
 ### 1. 아두이노에 스케치 업로드
 
 1. Arduino IDE에서 `아두이노 코드/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino`를 엽니다.
-2. `DHT sensor library`와 해당 라이브러리가 요구하는 의존성, `LiquidCrystal_I2C` 라이브러리를 설치합니다. LCD 라이브러리는 `init()`와 `backlight()`를 지원하는 버전을 사용하세요.
+2. `DHT sensor library`와 해당 라이브러리가 요구하는 의존성, `LiquidCrystal_I2C` 라이브러리를 설치합니다.  
+   LCD 라이브러리는 `init()`와 `backlight()`를 지원하는 버전을 사용하세요.
 3. 보드와 포트를 선택한 뒤 업로드합니다.
 4. 시리얼 모니터를 `9600 baud`로 열어 CSV 출력 여부를 확인하고, Python 실행 전에는 시리얼 모니터를 닫습니다.
 
-DHT22를 사용하면 `DHTTYPE`을 `DHT22`로 바꾸세요. LCD 주소가 다르면 `LiquidCrystal_I2C lcd(0x27, 16, 2)`의 주소를 실제 장치 주소로 수정하세요.
+DHT22를 사용하면 `DHTTYPE`을 `DHT22`로 바꾸세요.  
+LCD 주소가 다르면 `LiquidCrystal_I2C lcd(0x27, 16, 2)`의 주소를 실제 장치 주소로 수정하세요.
 
 ### 2. Python 환경 준비
 
@@ -121,7 +138,9 @@ cd "CSV 파이썬 코드"
 python pc_csv_logger.py
 ```
 
-`Ctrl+C`로 종료합니다. 파일은 현재 작업 폴더에 생성되며, 기존 파일이 있으면 이어서 저장합니다. 제공된 원본 데이터와 새 측정을 분리하려면 실행 전에 `OUTPUT_FILE`을 다른 이름으로 지정하세요.
+`Ctrl+C`로 종료합니다.  
+파일은 현재 작업 폴더에 생성되며, 기존 파일이 있으면 이어서 저장합니다.  
+제공된 원본 데이터와 새 측정을 분리하려면 실행 전에 `OUTPUT_FILE`을 다른 이름으로 지정하세요.
 
 <a name="-데이터-구성"></a>
 ## 데이터 구성

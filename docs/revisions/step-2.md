@@ -15,6 +15,9 @@ DHT와 AM1008W-K를 함께 읽고 LCD의 DHT·AM 온습도·공기질 화면을 
 
 프로젝트 전체의 설명은 [LEVEL 1 - Beginner](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md)부터 [LEVEL 5 - Expert](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)까지 같은 범위로 연결됩니다.
 
+<details open>
+<summary><strong>LEVEL 1 · Beginner</strong> — 목적과 동작부터</summary>
+
 <a id="reading-level-1"></a>
 ## LEVEL 1 - Beginner
 
@@ -189,6 +192,12 @@ Ctrl +C 때 안내를 남기고 finally에서 포트를 닫습니다.
 
 [자료 폴더](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) · [직전 비교·자료 범위](step-2.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
 
+
+</details>
+
+<details>
+<summary><strong>LEVEL 2 · Explorer</strong> — 구성과 연결 원리</summary>
+
 <a id="reading-level-2"></a>
 ## LEVEL 2 - Explorer
 
@@ -355,6 +364,12 @@ Ctrl +C 때 안내를 남기고 finally에서 포트를 닫습니다.
 
 [자료 폴더](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) · [직전 비교·자료 범위](step-2.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
 
+
+</details>
+
+<details>
+<summary><strong>LEVEL 3 · Practitioner</strong> — 준비·실행·결과 확인</summary>
+
 <a id="reading-level-3"></a>
 ## LEVEL 3 - Practitioner
 
@@ -518,6 +533,12 @@ parse_line은 센서 값 7 필드가 숫자 또는 빈 칸인지 확인합니다
 기본 포트 COM4, 9600 baud로 수신하고 UTF-8 air_log.csv에 PC 시각을 앞에 붙여 8 열로 저장합니다.
 
 [자료 폴더](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) · [직전 비교·자료 범위](step-2.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
+
+
+</details>
+
+<details>
+<summary><strong>LEVEL 4 · Advanced</strong> — 구현·설계·실패 처리</summary>
 
 <a id="reading-level-4"></a>
 ## LEVEL 4 - Advanced
@@ -689,6 +710,12 @@ Ctrl +C 때 안내를 남기고 finally에서 포트를 닫습니다.
 위 구성요소의 입력·출력과 실패 조건을 같은 차수 소스에 연결해 검토합니다. 전체 비교는 추가·수정·삭제와 원래 보관 범위를 구분하는 근거입니다.
 
 [자료 폴더](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) · [직전 비교·자료 범위](step-2.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
+
+</details>
+
+<details>
+<summary><strong>LEVEL 5 · Expert</strong> — 근거·프로토콜·한계 검토</summary>
+
 <a id="reading-level-5"></a>
 ## LEVEL 5 - Expert
 
@@ -943,3 +970,6 @@ Ctrl +C 때 안내를 남기고 finally에서 포트를 닫습니다.
 </details>
 
 [프로젝트](../../README.md) · [전체 차수](../REVISION_INDEX.md) · [원본 자료](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85) · [← 이전: 1차](step-1.md)
+
+</details>
+
