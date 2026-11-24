@@ -46,7 +46,7 @@ RGB LED는 색을 바꾸어 상태를 나타내는 불빛입니다. baud는 장�
 
 처리 — Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록
 
-출력 — air_log.csv: PC 시 각과 7개 센서 값, 총 8 열
+출력 — air_log.csv: PC 시각과 7개 센서 값, 총 8 열
 
 ### LEVEL 1 · 준비하고 확인할 것
 
@@ -210,7 +210,7 @@ parse_line은 센서 값 7 필드가 숫자 또는 빈 칸인지 확인합니다
 | --- | --- |
 | 입력 | DHT 온습도·AM 온습도·CO₂·VOC·PM2.5 |
 | 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
-| 출력 | air_log.csv: PC 시 각과 7개 센서 값, 총 8 열 |
+| 출력 | air_log.csv: PC 시각과 7개 센서 값, 총 8 열 |
 
 입력·처리·출력은 위의 같은 자료 흐름을 다른 단계에서 읽는 기준입니다. 처리 조건과 출력의 의미를 함께 확인합니다.
 
@@ -495,7 +495,7 @@ Ctrl +C 때 안내를 남기고 finally에서 포트를 닫습니다.
 | --- | --- |
 | 입력 | DHT 온습도·AM 온습도·CO₂·VOC·PM2.5 |
 | 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
-| 출력 | air_log.csv: PC 시 각과 7개 센서 값, 총 8 열 |
+| 출력 | air_log.csv: PC 시각과 7개 센서 값, 총 8 열 |
 
 ### LEVEL 3 · 결과와 실패를 확인하기
 
@@ -545,7 +545,7 @@ parse_line은 센서 값 7 필드가 숫자 또는 빈 칸인지 확인합니다
 | --- | --- |
 | 입력 | DHT 온습도·AM 온습도·CO₂·VOC·PM2.5 |
 | 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
-| 출력 | air_log.csv: PC 시 각과 7개 센서 값, 총 8 열 |
+| 출력 | air_log.csv: PC 시각과 7개 센서 값, 총 8 열 |
 
 ### LEVEL 4 · 조건·변경·결과를 함께 검토하기
 
@@ -732,7 +732,7 @@ DHT와 AM1008W-K를 함께 읽고 LCD의 DHT·AM 온습도·공기질 화면을 
 | --- | --- |
 | 입력 | DHT 온습도·AM 온습도·CO₂·VOC·PM2.5 |
 | 처리 | Arduino 센싱 → LCD·RGB LED → 9600 baud 시리얼 → Python 기록 |
-| 출력 | air_log.csv: PC 시 각과 7개 센서 값, 총 8 열 |
+| 출력 | air_log.csv: PC 시각과 7개 센서 값, 총 8 열 |
 
 <a name="usage"></a>
 
@@ -797,7 +797,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 - [아두이노 스케치](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%20%EC%BD%94%EB%93%9C/dht_am1008w_lcd_csv/dht_am1008w_lcd_csv.ino): 센서 읽기, LCD 표시, LED 등급 판정, CSV 전송.
 - [Python 수집기](../../%EC%BD%94%EB%93%9C/%EC%B5%9C%EC%A2%85/CSV%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%BD%94%EB%93%9C/pc_csv_logger.py): 데이터 형식 검사 및 타임스탬프를 포함한 CSV 저장.
-- `air_log.csv`: 수집기를 실행하면 작업 위치에 생성되는 기록 파일입니다. 이 공개 저장소에는 포함되어 있지 않습니다.
+- `air_log.csv`: 당시 원래 안내에는 공개 저장소에 포함하지 않는다고 적혀 있었습니다. 현재는 `코드/최종/CSV 파이썬 코드/air_log.csv`에 당시 측정 원본을 보존합니다. 새 측정은 다른 `OUTPUT_FILE` 이름으로 분리합니다.
 
 <a name="-데이터-구성"></a>
 ### 데이터 구성
