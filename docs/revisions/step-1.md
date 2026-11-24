@@ -4,7 +4,7 @@
 # 1차
 
 <!-- reading-levels:start -->
-[LEVEL 1 - Beginner](#reading-level-1) · [LEVEL 2 - Explorer](#reading-level-2) · [LEVEL 3 - Practitioner](#reading-level-3) · [LEVEL 4 - Advanced](#reading-level-4) · [LEVEL 5 - Expert](#reading-level-5)
+[LEVEL 1 - Beginner](#user-content-reading-level-1) · [LEVEL 2 - Explorer](#user-content-reading-level-2) · [LEVEL 3 - Practitioner](#user-content-reading-level-3) · [LEVEL 4 - Advanced](#user-content-reading-level-4) · [LEVEL 5 - Expert](#user-content-reading-level-5)
 
 프로젝트 전체의 설명은 [LEVEL 1 - Beginner](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md)부터 [LEVEL 5 - Expert](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)까지 같은 범위로 연결됩니다.
 
@@ -81,7 +81,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 | LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
 | 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
 
-[자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
+[자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#user-content-reading-level-5)
 
 
 </details>
@@ -159,7 +159,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 | LCD 표시 오류 | 주소·배선·대비·라이브러리 init/backlight 지원을 확인합니다. |
 | 측정 누락 | 센서 배선·종류와 수집기의 행 형식 조건을 확인합니다. |
 
-[자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
+[자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#user-content-reading-level-5)
 
 
 </details>
@@ -235,7 +235,7 @@ DHT11 온도·습도를 LCD와 RGB LED로 표시하고 두 값의 CSV를 전송�
 
 기본 포트는 COM3, 전송 속도는 9600 baud, 파일명은 dht_log.csv입니다.
 
-[자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
+[자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#user-content-reading-level-5)
 
 
 </details>
@@ -318,7 +318,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 
 위 구성요소의 입력·출력과 실패 조건을 같은 차수 소스에 연결해 검토합니다. 전체 비교는 추가·수정·삭제와 원래 보관 범위를 구분하는 근거입니다.
 
-[자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
+[자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#user-content-reading-level-5)
 
 </details>
 
@@ -328,7 +328,7 @@ Arduino 스케치를 보드에 업로드하고 시리얼 출력을 9600 baud로 
 <a id="reading-level-5"></a>
 ## LEVEL 5 - Expert
 
-기존의 전체 설명·표·코드·함수 참조·파일별 비교는 아래에 그대로 이어집니다. [자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#reading-level-5)
+기존의 전체 설명·표·코드·함수 참조·파일별 비교는 아래에 그대로 이어집니다. [자료 폴더](../../%EC%BD%94%EB%93%9C/1%EC%B0%A8) · [직전 비교·자료 범위](step-1.patch) · [이 차수의 원래 전체 상세](#user-content-reading-level-5)
 <!-- reading-levels:end -->
 
 
