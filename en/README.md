@@ -22,7 +22,7 @@
   <source media="(max-width: 600px)" srcset="../assets/readme/flow-en-light-mobile.svg" />
   <source media="(prefers-color-scheme: dark)" srcset="../assets/readme/flow-en-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="../assets/readme/flow-en-light.svg" />
-  <img src="../assets/readme/flow-en-light.svg" alt="Indoor Air Monitor Project: Climate · air quality → Arduino · sensor checks → LCD · LED · CSV" width="100%" />
+  <img src="../assets/readme/flow-en-light.svg" alt="Climate · air quality: DHT11 and AM1008W-K measurements → Arduino · sensor checks: Arduino sensing and UART validation → LCD · LED · CSV: Local displays and timestamped CSV" width="100%" />
 </picture>
 <!-- readme-header32:end -->
 

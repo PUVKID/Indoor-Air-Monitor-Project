@@ -21,7 +21,7 @@
   <source media="(max-width: 600px)" srcset="assets/readme/flow-ko-light-mobile.svg" />
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/flow-ko-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/flow-ko-light.svg" />
-  <img src="assets/readme/flow-ko-light.svg" alt="Indoor Air Monitor Project: 온습도 · 공기질 → Arduino · 센서 검사 → LCD · LED · CSV" width="100%" />
+  <img src="assets/readme/flow-ko-light.svg" alt="온습도 · 공기질: DHT11·AM1008W-K 측정값 → Arduino · 센서 검사: Arduino 센싱과 UART 수신 검사 → LCD · LED · CSV: 현장 표시와 타임스탬프 CSV" width="100%" />
 </picture>
 <!-- readme-header32:end -->
 
