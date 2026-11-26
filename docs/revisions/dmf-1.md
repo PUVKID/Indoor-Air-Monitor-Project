@@ -1,3 +1,7 @@
+<!-- language-choice:start -->
+🔵 **한국어** · [English overview](../../en/README.md)
+<!-- language-choice:end -->
+
 # DMF 적용 1차
 
 기존 실내 공기질 프로젝트에 DMF 데이터 관리 개념을 적용한 별도 차수입니다. 기존 1차와 최종 자료를 보존합니다. DMF 적용 최종은 이 1차의 납품 묶음이며 새 개발 차수나 별도 실험이 아닙니다.
